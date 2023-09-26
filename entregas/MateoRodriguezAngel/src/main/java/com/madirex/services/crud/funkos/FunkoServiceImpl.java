@@ -1,14 +1,19 @@
 package com.madirex.services.crud.funkos;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.madirex.exceptions.FunkoException;
 import com.madirex.models.Funko;
 import com.madirex.repositories.FunkoRepository;
-import com.madirex.services.backup.BackupJsonImpl;
+import com.madirex.utils.LocalDateAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +28,6 @@ public class FunkoServiceImpl implements FunkoService {
 
     private FunkoServiceImpl(FunkoRepository funkoRepository) {
         this.funkoRepository = funkoRepository;
-        //TODO: DO
         this.cache = new LinkedHashMap<>(CACHE_SIZE, 0.75f, true) {
             @Override
             protected boolean removeEldestEntry(Map.Entry<String, Funko> eldest) {
@@ -52,12 +56,28 @@ public class FunkoServiceImpl implements FunkoService {
     }
 
     @Override
-    public void backup(String path) {
-        BackupJsonImpl backup = BackupJsonImpl.getInstance();
-        try {
-            backup.backup(findAll());
-        } catch (IOException | SQLException e) {
-            throw new RuntimeException(e);
+    public void backup(String path, String fileName) {
+        File dataDir = new File(path);
+        if (dataDir.exists()) {
+            dataDir.mkdir();
+            String dest = path + fileName;
+            Gson gson = new GsonBuilder()
+                    .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+                    .setPrettyPrinting()
+                    .create();
+            String json = null;
+            try {
+                json = gson.toJson(findAll());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                Files.writeString(new File(dest).toPath(), json);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else{
+            //TODO: mensaje de error de no existe
         }
     }
 
@@ -81,6 +101,7 @@ public class FunkoServiceImpl implements FunkoService {
         Optional<Funko> modified;
         logger.debug("Guardando funko");
         modified = funkoRepository.save(funko);
+        cache.put(funko.getCod().toString(), funko);
         return modified;
     }
 
@@ -89,6 +110,7 @@ public class FunkoServiceImpl implements FunkoService {
         Optional<Funko> modified;
         logger.debug("Actualizando funko");
         modified = funkoRepository.update(funkoId, newFunko);
+        cache.put(newFunko.getCod().toString(), newFunko);
         return modified;
     }
 }

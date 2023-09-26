@@ -1,6 +1,8 @@
 package com.madirex;
 
 import com.madirex.repositories.FunkoRepositoryImpl;
+import com.madirex.services.crud.funkos.FunkoService;
+import com.madirex.services.crud.funkos.FunkoServiceImpl;
 import com.madirex.services.database.DatabaseManager;
 import com.madirex.services.io.CsvManager;
 
@@ -27,6 +29,25 @@ public class FunkoProgram {
     public void init() {
         System.out.println("Programa de Funkos iniciado.");
         loadFunkosFileAndInsertToDatabase("data" + File.separator + "funkos.csv");
+        callAllServiceMethods();
+    }
+
+    private void callAllServiceMethods() {
+        FunkoService serv = FunkoServiceImpl.getInstance(new FunkoRepositoryImpl(DatabaseManager.getInstance()));
+        try {
+            System.out.println("Find All:");
+            serv.findAll().forEach(System.out::println);
+
+            System.out.println("Find by Name:");
+            serv.findByName("Doctor Who Tardis");
+
+            serv.backup(System.getProperty("user.dir") + File.separator + "data", "backup.json");
+            //serv.findById();
+            //serv.save();
+            //serv.update();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void loadFunkosFileAndInsertToDatabase(String path) {
@@ -38,7 +59,6 @@ public class FunkoProgram {
                         try {
                             funkoRepository.save(funko);
                         } catch (SQLException throwables) {
-                            System.out.println(throwables);
                             failed.set(true);
                         }
                     });

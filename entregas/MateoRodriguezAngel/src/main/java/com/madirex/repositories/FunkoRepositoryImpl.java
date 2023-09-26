@@ -45,14 +45,14 @@ public class FunkoRepositoryImpl implements FunkoRepository {
     /**
      * Busca un elemento en el repositorio por su id
      *
-     * @param integer Id del elemento a buscar
+     * @param id Id del elemento a buscar
      * @return Optional del elemento encontrado
      */
     @Override
-    public Optional<Funko> findById(Integer integer) throws SQLException {
+    public Optional<Funko> findById(String id) throws SQLException {
         Optional<Funko> optReturn = Optional.empty();
-        var sql = "SELECT * FROM funko WHERE id = ?";
-        var res = database.select(sql, integer).orElseThrow();
+        var sql = "SELECT * FROM funko WHERE cod = ?";
+        var res = database.select(sql, id).orElseThrow();
         if (res.next()) {
             optReturn = Optional.of(Funko.builder()
                     .cod(UUID.fromString(res.getString("cod")))
@@ -84,28 +84,23 @@ public class FunkoRepositoryImpl implements FunkoRepository {
         return Optional.of(entity);
     }
 
-    /**
-     * [Método deshabilitado]
-     *
-     * @param integer Id del elemento a actualizar
-     * @param entity  Elemento con los nuevos datos
-     * @return Optional del elemento actualizado
-     */
     @Override
-    public Optional<Funko> update(Integer integer, Funko entity) {
-        return Optional.empty(); //TODO: DO
+    public Optional<Funko> delete(String id) throws SQLException {
+        return Optional.empty();
     }
 
     /**
      * [Método deshabilitado]
      *
-     * @param integer Id del elemento a borrar
-     * @return Optional del elemento borrado
+     * @param id Id del elemento a actualizar
+     * @param entity  Elemento con los nuevos datos
+     * @return Optional del elemento actualizado
      */
     @Override
-    public Optional<Funko> delete(Integer integer) {
+    public Optional<Funko> update(String id, Funko entity) {
         return Optional.empty(); //TODO: DO
     }
+
 
     /**
      * Busca un elemento en el repositorio por su nombre

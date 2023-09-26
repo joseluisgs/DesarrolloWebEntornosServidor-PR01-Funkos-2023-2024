@@ -11,6 +11,6 @@ public interface FunkoService extends BaseCRUDService<Funko, FunkoException>{
 
     List<Funko> findByName(String nombre) throws SQLException;
 
-    void backup(String path);
+    void backup(String path, String fileName);
 
 }
