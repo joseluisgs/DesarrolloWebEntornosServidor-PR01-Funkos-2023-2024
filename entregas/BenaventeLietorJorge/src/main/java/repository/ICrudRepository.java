@@ -2,13 +2,13 @@ package repository;
 
 import java.util.List;
 
-public interface ICrudRepository<TDB, T, PK> {
-    T save(T entity);
+public interface ICrudRepository<TDB, T, PK, EX extends Throwable> {
+    T save(T entity) throws EX;
 
-    T findById(PK id);
+    T findById(PK id) throws EX;
     List<T> findAll();
 
-    T update(TDB entity);
+    T update(TDB entity) throws EX;
 
-    void deleteById(PK id);
+    void deleteById(PK id) throws EX;
 }
