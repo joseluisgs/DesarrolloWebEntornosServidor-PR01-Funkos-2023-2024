@@ -43,4 +43,8 @@ public class FunkoController {
     public List<Funko> getLaunchedIn2023() {
         return funkoService.getLaunchedIn2023();
     }
+
+    public Map.Entry<Integer, List<Funko>> getStitchCountAndList() {
+        return funkoService.getStitchCountAndList();
+    }
 }

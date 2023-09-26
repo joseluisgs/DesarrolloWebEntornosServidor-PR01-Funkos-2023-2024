@@ -10,5 +10,6 @@ public class Main {
         System.out.println("Funkos agrupados por modelo: " + funkoController.getGroupedByModels());
         System.out.println("Número de funkos por modelo: " + funkoController.getCountByModels());
         System.out.println("Funkos lanzados en 2023: " + funkoController.getLaunchedIn2023());
+        System.out.println("Funkos de Stitch " + funkoController.getStitchCountAndList());
     }
 }

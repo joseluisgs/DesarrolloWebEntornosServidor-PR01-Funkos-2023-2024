@@ -70,4 +70,10 @@ public class FunkoService {
         return funkos.stream().filter(funko -> funko.getFechaLanzamiento().getYear() == 2023).toList();
     }
 
+    public Map.Entry<Integer, List<Funko>> getStitchCountAndList() {
+        List<Funko> funkos = funkoRepository.findAll();
+        List<Funko> stitchFunkos = funkos.stream().filter(f -> f.getNombre().contains("Stitch")).toList();
+        return Map.entry(stitchFunkos.size(), stitchFunkos);
+    }
+
 }
