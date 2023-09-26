@@ -36,4 +36,7 @@ public class FunkoController {
         return funkoService.getGroupedByModels();
     }
 
+    public Map<Modelo, Long> getCountByModels() {
+        return funkoService.getCountByModels();
+    }
 }
