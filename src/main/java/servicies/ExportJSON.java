@@ -1,7 +1,7 @@
 package servicies;
 
 import com.google.gson.Gson;
-import lombok.var;
+
 import models.Funko;
 
 import java.io.File;
