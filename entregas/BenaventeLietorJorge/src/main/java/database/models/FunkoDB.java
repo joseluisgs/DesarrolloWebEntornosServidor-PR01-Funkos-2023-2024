@@ -2,6 +2,7 @@ package database.models;
 
 import enums.Modelo;
 import lombok.*;
+import utils.LocaleUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,7 +45,7 @@ public class FunkoDB extends Funko {
 
     @Override
     public String toString() {
-        Locale locale = new Locale("es", "ES");
+        Locale locale = LocaleUtils.getLocale();
         String uuid = getCod().toString();
         String nombre = getNombre();
         String modelo = getModelo().toString();
