@@ -9,13 +9,13 @@ En el directorio data tienes un csv de muestra de Funkos. Con la siguiente estru
 
 
 Debes cargar estos datos en una base de datos H2 en fichero, llamada "funkos", teniendo en cuenta que los datos de conexión deben leerse de un fichero de propiedades y que debe estar gestionada por un manejador o servicio de bases de datos. El formato de la tabla FUNKOS es el siguiente:
-- ID: autonumérico y clave primaria
+- ID: autonumérico y clave primaria.
 - cod: UUID, no nulo, y se puede generar automáticamente un valor por defecto si no se le pasa.
 - nombre: cadena de caracteres de máximo 255.
-- modelo, solo puede ser MARVEL, DISNEY, ANIME u OTROS
-- precio: un número real
+- modelo, solo puede ser MARVEL, DISNEY, ANIME u OTROS.
+- precio: un número real.
 - fecha_lanzamiento: es un tipo de fecha.
-- created_at: marca de tiempo que toma por valor si no se le pasa la fecha completa actual al crearse la entidad
+- created_at: marca de tiempo que toma por valor si no se le pasa la fecha completa actual al crearse la entidad.
 - updated_at: marca de tiempo que toma por valor si no se le pasa la fecha completa al crearse la entidad o actualizarse.
 
 
@@ -29,11 +29,11 @@ Además, en el main, las salidas deben estar localizadas tanto en fechas como mo
 Se debe mostrar un ejemplo de cada uno de los métodos del servicio en el main y de sus casos incorrectos.
 
 Se debe procesar estas consultas en el main con las salidas localizadas en ES usando la API Stream.
-- Funko más caro
-- Media de precio de funkos
-- Funkos agrupados por modelos
-- Número de funkos por modelos
-- Funkos que han sido lanzados en 2023
+- Funko más caro.
+- Media de precio de funkos.
+- Funkos agrupados por modelos.
+- Número de funkos por modelos.
+- Funkos que han sido lanzados en 2023.
 - Numero de funkos de Stitch y listado de ellos.
 
 Finalmente se pide testear todos los caso correctos o incorrectos de los métodos del servicio y repositorio. Se debe usar JUnit 5 y Mockito donde corresponda.
