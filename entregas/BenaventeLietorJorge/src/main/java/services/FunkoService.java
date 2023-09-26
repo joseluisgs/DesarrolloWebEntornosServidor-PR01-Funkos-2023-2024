@@ -2,7 +2,6 @@ package services;
 
 import database.manager.DatabaseManager;
 import database.models.Funko;
-import database.models.FunkoDB;
 import enums.Modelo;
 import lombok.extern.log4j.Log4j2;
 import repository.FunkoRepository;
@@ -59,5 +58,10 @@ public class FunkoService {
     public Map<Modelo, List<Funko>> getGroupedByModels() {
         List<Funko> funkos = funkoRepository.findAll();
         return funkos.stream().collect(Collectors.groupingBy(Funko::getModelo));
+    }
+
+    public Map<Modelo, Long> getCountByModels() {
+        List<Funko> funkos = funkoRepository.findAll();
+        return funkos.stream().collect(Collectors.groupingBy(Funko::getModelo, Collectors.counting()));
     }
 }
