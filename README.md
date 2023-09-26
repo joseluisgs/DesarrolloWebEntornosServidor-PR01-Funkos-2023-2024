@@ -1,4 +1,5 @@
 Haz fork del repositorio del profesor: https://github.com/joseluisgs/DesarrolloWebEntornosServidor-PR01-Funkos-2023-2024
+
 En el directorio data tienes un csv de muestra de Funkos. Con la siguiente estructura:
 - COD: En formato UUID v4
 - NOMBRE: Cadena de caracteres
