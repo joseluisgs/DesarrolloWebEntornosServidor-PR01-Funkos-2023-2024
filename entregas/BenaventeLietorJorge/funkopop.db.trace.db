@@ -334,6 +334,6 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "created_date" not found [42122-
 	at org.h2.jdbc.JdbcResultSet.getTimestamp(JdbcResultSet.java:524)
 	at database.models.FunkoDB.fromResultSet(FunkoDB.java:40)
 	at repository.FunkoRepository.findAll(FunkoRepository.java:99)
-	at services.FunkoService.getMostExpensiveFunko(FunkoService.java:47)
+	at services.IFunkoService.getMostExpensiveFunko(FunkoService.java:47)
 	at controllers.FunkoController.getMostExpensiveFunko(FunkoController.java:19)
 	at Main.main(Main.java:8)
