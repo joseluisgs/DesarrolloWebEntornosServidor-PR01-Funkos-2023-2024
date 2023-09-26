@@ -47,4 +47,8 @@ public class FunkoController {
     public Map.Entry<Integer, List<Funko>> getStitchCountAndList() {
         return funkoService.getStitchCountAndList();
     }
+
+    public void exportToJson() {
+        funkoService.backup("data/funko.json");
+    }
 }
