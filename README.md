@@ -28,9 +28,9 @@ Además, en el main, las salidas deben estar localizadas tanto en fechas como mo
 
 Se debe mostrar un ejemplo de cada uno de los métodos del servicio en el main y de sus casos incorrectos.
 
-Se debe procesar estas consultas en el main con las salidas localizadas en ES.
+Se debe procesar estas consultas en el main con las salidas localizadas en ES usando la API Stream.
 - Funko más caro
-- Media de precio de Funkos
+- Media de precio de funkos
 - Funkos agrupados por modelos
 - Número de funkos por modelos
 - Funkos que han sido lanzados en 2023
