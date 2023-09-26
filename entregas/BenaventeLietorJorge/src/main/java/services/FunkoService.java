@@ -47,4 +47,9 @@ public class FunkoService {
         List<Funko> funkos = funkoRepository.findAll();
         return funkos.stream().max(Comparator.comparingDouble(Funko::getPrecio)).orElse(null);
     }
+
+    public double getAvgPrice() {
+        List<Funko> funkos = funkoRepository.findAll();
+        return funkos.stream().mapToDouble(Funko::getPrecio).average().orElse(0);
+    }
 }

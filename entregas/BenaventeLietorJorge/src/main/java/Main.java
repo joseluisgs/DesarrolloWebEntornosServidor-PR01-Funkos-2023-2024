@@ -6,5 +6,6 @@ public class Main {
         FunkoController funkoController = new FunkoController(FunkoService.getInstance());
         funkoController.importCsv();
         System.out.println("Funko más caro: " +funkoController.getMostExpensiveFunko());
+        System.out.println("Precio medio: " +funkoController.getAvgPrice());
     }
 }
