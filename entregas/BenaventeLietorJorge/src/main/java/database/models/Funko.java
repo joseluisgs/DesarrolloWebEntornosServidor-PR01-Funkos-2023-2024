@@ -8,7 +8,6 @@ import java.util.UUID;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor(force = true)
 public class Funko {
     private final UUID cod;
     private String nombre;

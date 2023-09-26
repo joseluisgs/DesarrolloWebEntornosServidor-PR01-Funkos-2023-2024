@@ -320,3 +320,20 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-09-26 19:54:12 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-210]
+2023-09-26 19:54:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-210]
+2023-09-26 19:55:55 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "created_date" not found [42122-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:521)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3492)
+	at org.h2.jdbc.JdbcResultSet.getTimestamp(JdbcResultSet.java:524)
+	at database.models.FunkoDB.fromResultSet(FunkoDB.java:40)
+	at repository.FunkoRepository.findAll(FunkoRepository.java:99)
+	at services.FunkoService.getMostExpensiveFunko(FunkoService.java:47)
+	at controllers.FunkoController.getMostExpensiveFunko(FunkoController.java:19)
+	at Main.main(Main.java:8)

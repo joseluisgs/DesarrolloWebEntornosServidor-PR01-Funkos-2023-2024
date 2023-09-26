@@ -10,6 +10,7 @@ import repository.IFunkoRepository;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.List;
 
 @Log4j2
@@ -40,6 +41,10 @@ public class FunkoService {
         } catch (IOException e) {
             log.error("Error al leer el fichero csv", e);
         }
+    }
 
+    public Funko getMostExpensiveFunko() {
+        List<Funko> funkos = funkoRepository.findAll();
+        return funkos.stream().max(Comparator.comparingDouble(Funko::getPrecio)).orElse(null);
     }
 }

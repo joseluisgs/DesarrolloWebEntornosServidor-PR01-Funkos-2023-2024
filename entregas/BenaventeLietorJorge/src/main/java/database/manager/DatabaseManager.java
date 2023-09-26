@@ -67,7 +67,7 @@ public class DatabaseManager implements AutoCloseable {
 
     private PreparedStatement prepareStatement(SqlCommand sqlCommand) throws SQLException {
 
-        PreparedStatement preparedStatement = connection.prepareStatement(sqlCommand.getCommand());
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlCommand.getCommand(), Statement.RETURN_GENERATED_KEYS);
 
         for (int i = 0; i < sqlCommand.getParams().size(); i++) {
             preparedStatement.setObject(i + 1, sqlCommand.getParams().get(i));
@@ -78,19 +78,22 @@ public class DatabaseManager implements AutoCloseable {
 
     public ResultSet executeQuery(SqlCommand sqlCommand) throws SQLException, IOException {
         open();
+        ResultSet resultSet;
         PreparedStatement preparedStatement = prepareStatement(sqlCommand);
-        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet = preparedStatement.executeQuery();
         return resultSet;
 
     }
 
     public int executeUpdate(SqlCommand sqlCommand) throws SQLException, IOException {
         open();
+        int affectedRows;
         PreparedStatement preparedStatement = prepareStatement(sqlCommand);
-        int affectedRows = preparedStatement.executeUpdate();
+        affectedRows = preparedStatement.executeUpdate();
         return affectedRows;
 
     }
+
     @Override
     public void close() throws SQLException {
         if (this.connection != null) {
