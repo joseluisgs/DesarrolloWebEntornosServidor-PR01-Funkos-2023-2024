@@ -1,8 +1,12 @@
 package services;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import database.manager.DatabaseManager;
 import database.models.Funko;
 import enums.Modelo;
+import json.LocalDateSerializer;
+import json.LocalDateTimeSerializer;
 import lombok.extern.log4j.Log4j2;
 import repository.FunkoRepository;
 import repository.IFunkoRepository;
@@ -10,6 +14,8 @@ import repository.IFunkoRepository;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -74,6 +80,17 @@ public class FunkoService {
         List<Funko> funkos = funkoRepository.findAll();
         List<Funko> stitchFunkos = funkos.stream().filter(f -> f.getNombre().contains("Stitch")).toList();
         return Map.entry(stitchFunkos.size(), stitchFunkos);
+    }
+
+    public void backup(String ruta) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(LocalDate.class, new LocalDateSerializer()).registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerializer()).create();
+        List<Funko> funkos = funkoRepository.findAll();
+        String json = gson.toJson(funkos);
+        try {
+            Files.writeString(Path.of(ruta), json);
+        } catch (IOException e) {
+            log.error("Error al escribir el fichero", e);
+        }
     }
 
 }

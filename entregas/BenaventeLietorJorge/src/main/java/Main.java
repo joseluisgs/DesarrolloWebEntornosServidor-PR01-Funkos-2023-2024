@@ -1,4 +1,5 @@
 import controllers.FunkoController;
+import lombok.extern.log4j.Log4j2;
 import services.FunkoService;
 
 public class Main {
@@ -11,5 +12,8 @@ public class Main {
         System.out.println("Número de funkos por modelo: " + funkoController.getCountByModels());
         System.out.println("Funkos lanzados en 2023: " + funkoController.getLaunchedIn2023());
         System.out.println("Funkos de Stitch " + funkoController.getStitchCountAndList());
+        System.out.println("Exportando a JSON");
+        funkoController.exportToJson();
+        System.out.println("Exportado a JSON");
     }
 }
