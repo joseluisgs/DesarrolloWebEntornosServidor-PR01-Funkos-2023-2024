@@ -168,4 +168,21 @@ public class FunkoRepository implements IFunkoRepository {
             throw new FunkoNotSavedException("Error al insertar los funkos");
         }
     }
+
+    @Override
+    public Funko findByNombre(String nombre) {
+        SqlCommand query = new SqlCommand("SELECT * FROM funkos WHERE nombre = ?");
+        query.addParam(nombre);
+        try {
+            ResultSet resultSet = databaseManager.executeQuery(query);
+            if (resultSet.next()) {
+                return FunkoDB.fromResultSet(resultSet);
+            }
+            throw new FunkoNotFoundException("Error al obtener el funko");
+        } catch (SQLException | IOException e) {
+            log.error("Error al obtener el funko", e);
+            throw new FunkoNotFoundException("Error al obtener el funko");
+        }
+    }
+
 }

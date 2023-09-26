@@ -1,6 +1,6 @@
 import controllers.FunkoController;
-import lombok.extern.log4j.Log4j2;
 import services.FunkoService;
+import services.IFunkoService;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,5 +15,7 @@ public class Main {
         System.out.println("Exportando a JSON");
         funkoController.exportToJson();
         System.out.println("Exportado a JSON");
+
+        System.out.println("Buscando por nombre: Naruto Shippuden " + funkoController.findByNombre("Naruto Shippuden"));
     }
 }

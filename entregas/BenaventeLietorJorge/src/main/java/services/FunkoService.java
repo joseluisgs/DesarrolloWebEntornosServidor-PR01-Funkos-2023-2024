@@ -23,10 +23,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Log4j2
-public class FunkoService {
-    private static FunkoService instance;
+public class FunkoService implements IFunkoService {
+    private static IFunkoService instance;
 
-    public static FunkoService getInstance() {
+    public static IFunkoService getInstance() {
         if (instance == null) {
             instance = new FunkoService(FunkoRepository.getInstance(DatabaseManager.getInstance()));
         }
@@ -39,6 +39,7 @@ public class FunkoService {
         this.funkoRepository = funkoRepository;
     }
 
+    @Override
     public void importCsv() {
         final String fileName = "data/funkos.csv";
         try {
@@ -54,37 +55,44 @@ public class FunkoService {
         }
     }
 
+    @Override
     public Funko getMostExpensiveFunko() {
         List<Funko> funkos = funkoRepository.findAll();
         return funkos.stream().max(Comparator.comparingDouble(Funko::getPrecio)).orElse(null);
     }
 
+    @Override
     public double getAvgPrice() {
         List<Funko> funkos = funkoRepository.findAll();
         return funkos.stream().mapToDouble(Funko::getPrecio).average().orElse(0);
     }
 
+    @Override
     public Map<Modelo, List<Funko>> getGroupedByModels() {
         List<Funko> funkos = funkoRepository.findAll();
         return funkos.stream().collect(Collectors.groupingBy(Funko::getModelo));
     }
 
+    @Override
     public Map<Modelo, Long> getCountByModels() {
         List<Funko> funkos = funkoRepository.findAll();
         return funkos.stream().collect(Collectors.groupingBy(Funko::getModelo, Collectors.counting()));
     }
 
+    @Override
     public List<Funko> getLaunchedIn2023() {
         List<Funko> funkos = funkoRepository.findAll();
         return funkos.stream().filter(funko -> funko.getFechaLanzamiento().getYear() == 2023).toList();
     }
 
+    @Override
     public Map.Entry<Integer, List<Funko>> getStitchCountAndList() {
         List<Funko> funkos = funkoRepository.findAll();
         List<Funko> stitchFunkos = funkos.stream().filter(f -> f.getNombre().contains("Stitch")).toList();
         return Map.entry(stitchFunkos.size(), stitchFunkos);
     }
 
+    @Override
     public void backup(String ruta) {
         Gson gson = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(LocalDate.class, new LocalDateSerializer()).registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerializer()).create();
         List<Funko> funkos = funkoRepository.findAll();
@@ -94,6 +102,11 @@ public class FunkoService {
         } catch (IOException e) {
             log.error("Error al escribir el fichero", e);
         }
+    }
+
+    @Override
+    public Funko findByNombre(String nombre) {
+        return funkoRepository.findByNombre(nombre);
     }
 
 }
