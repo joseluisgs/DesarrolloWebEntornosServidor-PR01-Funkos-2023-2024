@@ -1,11 +1,14 @@
 package controllers;
 
 import database.models.Funko;
+import enums.Modelo;
 import services.FunkoService;
 import utils.LocaleUtils;
 
 import java.text.NumberFormat;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class FunkoController {
     private final FunkoService funkoService;
@@ -29,5 +32,8 @@ public class FunkoController {
         return currencyFormatter.format(funkoService.getAvgPrice());
     }
 
+    public Map<Modelo, List<Funko>> getGroupedByModels() {
+        return funkoService.getGroupedByModels();
+    }
 
 }
