@@ -3,6 +3,7 @@ package services;
 import database.manager.DatabaseManager;
 import database.models.Funko;
 import database.models.FunkoDB;
+import enums.Modelo;
 import lombok.extern.log4j.Log4j2;
 import repository.FunkoRepository;
 import repository.IFunkoRepository;
@@ -12,6 +13,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Log4j2
 public class FunkoService {
@@ -51,5 +54,10 @@ public class FunkoService {
     public double getAvgPrice() {
         List<Funko> funkos = funkoRepository.findAll();
         return funkos.stream().mapToDouble(Funko::getPrecio).average().orElse(0);
+    }
+
+    public Map<Modelo, List<Funko>> getGroupedByModels() {
+        List<Funko> funkos = funkoRepository.findAll();
+        return funkos.stream().collect(Collectors.groupingBy(Funko::getModelo));
     }
 }

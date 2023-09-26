@@ -7,5 +7,6 @@ public class Main {
         funkoController.importCsv();
         System.out.println("Funko más caro: " +funkoController.getMostExpensiveFunko());
         System.out.println("Precio medio: " +funkoController.getAvgPrice());
+        System.out.println("Funkos agrupados por modelo: " +funkoController.getGroupedByModels());
     }
 }
