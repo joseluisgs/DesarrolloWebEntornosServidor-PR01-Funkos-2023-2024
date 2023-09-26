@@ -4,6 +4,8 @@ import database.manager.DatabaseManager;
 import database.models.Funko;
 import database.models.FunkoDB;
 import database.models.SqlCommand;
+import exceptions.FunkoNotFoundException;
+import exceptions.FunkoNotSavedException;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
@@ -62,6 +64,7 @@ public class FunkoRepository implements IFunkoRepository {
             }
         } catch (SQLException | IOException e) {
             log.error("Error al obtener el funko", e);
+            throw new FunkoNotSavedException("Error al obtener el funko");
         }
         return null;
     }
@@ -83,6 +86,7 @@ public class FunkoRepository implements IFunkoRepository {
             }
         } catch (SQLException | IOException e) {
             log.error("Error al obtener el funko", e);
+            throw new FunkoNotFoundException("Error al obtener el funko");
         }
         return null;
     }
@@ -120,8 +124,8 @@ public class FunkoRepository implements IFunkoRepository {
             return entity;
         } catch (SQLException | IOException e) {
             log.error("Error al actualizar el funko", e);
+            throw new FunkoNotSavedException("Error al actualizar el funko");
         }
-        return null;
     }
 
     @Override
@@ -133,6 +137,7 @@ public class FunkoRepository implements IFunkoRepository {
             cache.remove(id);
         } catch (SQLException | IOException e) {
             log.error("Error al eliminar el funko", e);
+            throw new FunkoNotFoundException("Error al eliminar el funko");
         }
     }
 
@@ -160,6 +165,7 @@ public class FunkoRepository implements IFunkoRepository {
             databaseManager.executeUpdate(sqlCommand);
         } catch (SQLException | IOException e) {
             log.error("Error al insertar los funkos", e);
+            throw new FunkoNotSavedException("Error al insertar los funkos");
         }
     }
 }

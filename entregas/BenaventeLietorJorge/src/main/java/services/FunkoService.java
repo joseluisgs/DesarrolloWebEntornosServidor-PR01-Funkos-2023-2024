@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import database.manager.DatabaseManager;
 import database.models.Funko;
 import enums.Modelo;
+import exceptions.FunkoNotSavedException;
 import json.LocalDateSerializer;
 import json.LocalDateTimeSerializer;
 import lombok.extern.log4j.Log4j2;
@@ -48,6 +49,8 @@ public class FunkoService {
             funkoRepository.saveAll(funkos);
         } catch (IOException e) {
             log.error("Error al leer el fichero csv", e);
+        } catch (FunkoNotSavedException e) {
+            log.error("Error al guardar los funkos", e);
         }
     }
 
