@@ -64,4 +64,10 @@ public class FunkoService {
         List<Funko> funkos = funkoRepository.findAll();
         return funkos.stream().collect(Collectors.groupingBy(Funko::getModelo, Collectors.counting()));
     }
+
+    public List<Funko> getLaunchedIn2023() {
+        List<Funko> funkos = funkoRepository.findAll();
+        return funkos.stream().filter(funko -> funko.getFechaLanzamiento().getYear() == 2023).toList();
+    }
+
 }

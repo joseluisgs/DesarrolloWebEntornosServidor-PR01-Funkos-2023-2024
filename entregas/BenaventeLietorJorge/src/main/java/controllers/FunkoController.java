@@ -39,4 +39,8 @@ public class FunkoController {
     public Map<Modelo, Long> getCountByModels() {
         return funkoService.getCountByModels();
     }
+
+    public List<Funko> getLaunchedIn2023() {
+        return funkoService.getLaunchedIn2023();
+    }
 }
