@@ -56,7 +56,7 @@ public class FunkoRepositoryImpl implements FunkoRepository {
         if (res.next()) {
             optReturn = Optional.of(Funko.builder()
                     .cod(UUID.fromString(res.getString("cod")))
-                    .name(res.getString("name"))
+                    .name(res.getString("nombre"))
                     .model(Model.valueOf(res.getString("modelo")))
                     .price(res.getDouble("precio"))
                     .releaseDate(res.getDate("fecha_lanzamiento").toLocalDate())

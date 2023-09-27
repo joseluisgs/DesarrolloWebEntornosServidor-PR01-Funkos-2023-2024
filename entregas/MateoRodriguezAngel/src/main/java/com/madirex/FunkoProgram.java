@@ -1,6 +1,9 @@
 package com.madirex;
 
+import com.madirex.exceptions.FunkoException;
 import com.madirex.exceptions.ReadCSVFailException;
+import com.madirex.models.Funko;
+import com.madirex.models.Model;
 import com.madirex.repositories.FunkoRepositoryImpl;
 import com.madirex.services.crud.funkos.FunkoService;
 import com.madirex.services.crud.funkos.FunkoServiceImpl;
@@ -11,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class FunkoProgram {
@@ -45,10 +49,24 @@ public class FunkoProgram {
             System.out.println("\nFind by Name:");
             serv.findByName("Doctor Who Tardis").forEach(System.out::println);
 
-            serv.backup(System.getProperty("user.dir") + File.separator + "data", "backup.json");
-            //serv.findById();
-            //serv.save();
-            //serv.update();
+            System.out.println("\nFind by Id:");
+            serv.findById("3b6c6f58-7c6b-434b-82ab-01b2d6e4434a").ifPresent(System.out::println);
+
+            System.out.println("\nSave:");
+            try {
+                serv.save(Funko.builder()
+                        .name("MadiFunko")
+                        .model(Model.OTROS)
+                        .price(42)
+                        .releaseDate(LocalDate.now())
+                        .build()).ifPresent(System.out::println);
+            } catch (FunkoException e) {
+                throw new RuntimeException(e);
+            }
+            //TODO: serv.save();
+            //TODO: serv.update();
+            //TODO: serv.remove();
+            //TODO: serv.backup(System.getProperty("user.dir") + File.separator + "data", "backup.json");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
