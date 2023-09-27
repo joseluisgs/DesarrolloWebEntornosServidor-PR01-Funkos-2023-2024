@@ -68,16 +68,12 @@ public class FunkoServiceImpl implements FunkoService {
             String json = null;
             try {
                 json = gson.toJson(findAll());
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            try {
                 Files.writeString(new File(dest).toPath(), json);
-            } catch (IOException e) {
+            } catch (IOException | SQLException e) {
                 throw new RuntimeException(e);
             }
         }else{
-            //TODO: mensaje de error de no existe
+            logger.error("El directorio del backup es un directorio no válido. No se creará el backup.");
         }
     }
 

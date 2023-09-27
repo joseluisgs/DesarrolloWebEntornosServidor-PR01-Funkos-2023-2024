@@ -1,5 +1,7 @@
 package com.madirex.services.io;
 
+import com.madirex.exceptions.CreateFolderException;
+import com.madirex.exceptions.ReadCSVFailException;
 import com.madirex.models.Funko;
 import com.madirex.models.Model;
 
@@ -48,7 +50,7 @@ public class CsvManager {
      * @param path Ruta del archivo CSV
      * @return Optional de la lista de Funko
      */
-    public Optional<List<Funko>> fileToFunkoList(String path) {
+    public Optional<List<Funko>> fileToFunkoList(String path) throws ReadCSVFailException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
@@ -66,21 +68,21 @@ public class CsvManager {
                     )
                     .toList());
         } catch (IOException e) {
-            throw new RuntimeException("Error al leer el archivo CSV");
+            throw new ReadCSVFailException(e.getMessage());
         }
     }
 
     /**
      * Crea la carpeta out si no existe
      */
-    private void createOutFolderIfNotExists() {
+    private void createOutFolderIfNotExists() throws CreateFolderException {
         try {
             Path folderPath = Paths.get("out");
             if (!Files.exists(folderPath)) {
                 Files.createDirectories(folderPath);
             }
         } catch (IOException e) {
-            throw new RuntimeException("Error al crear la carpeta out");
+            throw new CreateFolderException(e.getMessage());
         }
     }
 }

@@ -27,7 +27,7 @@ public class FunkoRepositoryImpl implements FunkoRepository {
     @Override
     public List<Funko> findAll() throws SQLException {
         List<Funko> list = new ArrayList<>();
-        var sql = "SELECT * FROM pokemon";
+        var sql = "SELECT * FROM funko";
         var res = database.select(sql).orElseThrow();
         while (res.next()) {
             list.add(Funko.builder()
