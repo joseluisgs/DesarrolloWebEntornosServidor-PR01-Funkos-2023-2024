@@ -1,13 +1,10 @@
 package com.madirex.services.crud;
 
-import com.madirex.exceptions.FunkoException;
-import com.madirex.models.Funko;
-
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public interface BaseCRUDService <I, E extends Throwable>{
+public interface BaseCRUDService<I, E extends Throwable> {
     List<I> findAll() throws SQLException;
 
     Optional<I> findById(String id) throws SQLException;

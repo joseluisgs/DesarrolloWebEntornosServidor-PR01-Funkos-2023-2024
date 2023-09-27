@@ -32,7 +32,7 @@ public class FunkoRepositoryImpl implements FunkoRepository {
         while (res.next()) {
             list.add(Funko.builder()
                     .cod(UUID.fromString(res.getString("cod")))
-                    .name(res.getString("name"))
+                    .name(res.getString("nombre"))
                     .model(Model.valueOf(res.getString("modelo")))
                     .price(res.getDouble("precio"))
                     .releaseDate(res.getDate("fecha_lanzamiento").toLocalDate())
@@ -77,8 +77,13 @@ public class FunkoRepositoryImpl implements FunkoRepository {
         var sql = "INSERT INTO funko (cod, nombre, modelo, precio, fecha_lanzamiento, created_at, updated_at) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
         database.open();
-        database.insertAndGetKey(sql, entity.getCod(), entity.getName(), entity.getModel(), entity.getPrice(),
-                        entity.getReleaseDate(), LocalDateTime.now(), LocalDateTime.now())
+        database.insertAndGetKey(sql, entity.getCod().toString(),
+                        entity.getName(),
+                        entity.getModel().toString(),
+                        entity.getPrice(),
+                        entity.getReleaseDate(),
+                        LocalDateTime.now(),
+                        LocalDateTime.now())
                 .orElseThrow();
         database.close();
         return Optional.of(entity);

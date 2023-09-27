@@ -39,11 +39,11 @@ public class FunkoProgram {
     private void callAllServiceMethods() {
         FunkoService serv = FunkoServiceImpl.getInstance(new FunkoRepositoryImpl(DatabaseManager.getInstance()));
         try {
-            System.out.println("Find All:");
+            System.out.println("\nFind All:");
             serv.findAll().forEach(System.out::println);
 
-            System.out.println("Find by Name:");
-            serv.findByName("Doctor Who Tardis");
+            System.out.println("\nFind by Name:");
+            serv.findByName("Doctor Who Tardis").forEach(System.out::println);
 
             serv.backup(System.getProperty("user.dir") + File.separator + "data", "backup.json");
             //serv.findById();
