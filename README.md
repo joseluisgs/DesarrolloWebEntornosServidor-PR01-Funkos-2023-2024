@@ -1,7 +1,7 @@
 Haz fork del repositorio del profesor: https://github.com/joseluisgs/DesarrolloWebEntornosServidor-PR01-Funkos-2023-2024
 
 En el directorio data tienes un csv de muestra de Funkos. Con la siguiente estructura:
-- COD: En formato UUID v4
+- COD: En formato UUID v4 (Ojo al procesarlo que quizás hay algo extraño y debas tomar una decisión)
 - NOMBRE: Cadena de caracteres
 - MODELO: Solo tiene estos valores: MARVEL, DISNEY, ANIME u OTROS
 - PRECIO: Moneda con dos decimales.
