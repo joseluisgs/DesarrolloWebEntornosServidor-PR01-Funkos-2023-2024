@@ -1,6 +1,5 @@
 import controllers.FunkoController;
 import services.FunkoService;
-import services.IFunkoService;
 
 public class Main {
     public static void main(String[] args) {
