@@ -1,12 +1,25 @@
 
-g	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8‰›­1
-g	java:S112D"FDefine and throw a dedicated exception instead of using a generic one.(âÆ²äøÿÿÿÿ8î¶‘›­1
+g	java:S112@"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8‰›­1
+g	java:S112G"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8½Úó¿­1
+W
+java:S11418"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ÀÚó¿­1
 »
-java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(‹Á‰şÿÿÿÿ8µ†‡›­1
-G	java:S106"+Replace this use of System.out by a logger.(ÉÚò8À†‡›­1
-G	java:S106&"+Replace this use of System.out by a logger.(æ ËŠ8Ä†‡›­1
-F	java:S106'"+Replace this use of System.out by a logger.(Ä®,8Å†‡›­1
-G	java:S106)"+Replace this use of System.out by a logger.(ÖøÎ8Æ†‡›­1
-L	java:S106*"+Replace this use of System.out by a logger.(¬¢õÂÿÿÿÿÿ8Æ†‡›­1
-]	java:S125-"<This block of commented-out lines of code should be removed.(°Åõ®ıÿÿÿÿ8Ç†‡›­1
-G	java:S106>"+Replace this use of System.out by a logger.(›Òëæ8ª¡‰›­1
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(‹Á‰şÿÿÿÿ8µ†‡›­1
+G	java:S106&"+Replace this use of System.out by a logger.(ÉÚò8Ä†‡›­1
+G	java:S106."+Replace this use of System.out by a logger.(æ ËŠ8ºÛó¿­1
+F	java:S106/"+Replace this use of System.out by a logger.(Ä®,8Å†‡›­1
+G	java:S1061"+Replace this use of System.out by a logger.(ÖøÎ8Æ†‡›­1
+L	java:S1062"+Replace this use of System.out by a logger.(¬¢õÂÿÿÿÿÿ8Æ†‡›­1
+L	java:S1064"+Replace this use of System.out by a logger.(ÓóÒ¿øÿÿÿÿ8ÎÛó¿­1
+L	java:S1065"+Replace this use of System.out by a logger.(ü´Ôøÿÿÿÿ8ÖÛó¿­1
+G	java:S1067"+Replace this use of System.out by a logger.(ĞÆ±Û8ÚÛó¿­1
+L	java:S106>"+Replace this use of System.out by a logger.(àÅƒ¶ÿÿÿÿÿ8ª¡‰›­1
+X	java:S125B"<This block of commented-out lines of code should be removed.(•Í€ê8ñÛó¿­1
+O
+java:S1135B"2Complete the task associated to this TODO comment.(•Í€ê8ôÛó¿­1
+T
+java:S1135C"2Complete the task associated to this TODO comment.(ÓØÅëúÿÿÿÿ8õÛó¿­1
+O
+java:S1135D"2Complete the task associated to this TODO comment.(­À‡®8öÛó¿­1
+T
+java:S1135E"2Complete the task associated to this TODO comment.(ÀÆôËşÿÿÿÿ8öÛó¿­1

@@ -60,7 +60,7 @@ public class FunkoServiceImpl implements FunkoService {
         File dataDir = new File(path);
         if (dataDir.exists()) {
             dataDir.mkdir();
-            String dest = path + fileName;
+            String dest = path + File.separator + fileName;
             Gson gson = new GsonBuilder()
                     .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
                     .setPrettyPrinting()
@@ -69,6 +69,7 @@ public class FunkoServiceImpl implements FunkoService {
             try {
                 json = gson.toJson(findAll());
                 Files.writeString(new File(dest).toPath(), json);
+                logger.debug("Backup realizado con éxito");
             } catch (IOException | SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -93,7 +94,7 @@ public class FunkoServiceImpl implements FunkoService {
     }
 
     @Override
-    public Optional<Funko> save(Funko funko) throws SQLException, FunkoException {
+    public Optional<Funko> save(Funko funko) throws SQLException {
         Optional<Funko> modified;
         logger.debug("Guardando funko");
         modified = funkoRepository.save(funko);
@@ -102,11 +103,19 @@ public class FunkoServiceImpl implements FunkoService {
     }
 
     @Override
-    public Optional<Funko> update(String funkoId, Funko newFunko) throws SQLException, FunkoException {
+    public Optional<Funko> update(String funkoId, Funko newFunko) throws SQLException {
         Optional<Funko> modified;
         logger.debug("Actualizando funko");
         modified = funkoRepository.update(funkoId, newFunko);
         cache.put(newFunko.getCod().toString(), newFunko);
         return modified;
+    }
+
+    @Override
+    public boolean delete(String id) throws SQLException {
+        Optional<Funko> modified;
+        logger.debug("Eliminando funko");
+        modified = funkoRepository.delete(id);
+        return modified.isPresent();
     }
 }

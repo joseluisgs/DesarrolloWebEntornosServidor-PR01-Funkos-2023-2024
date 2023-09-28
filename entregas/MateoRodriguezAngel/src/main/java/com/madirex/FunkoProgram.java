@@ -15,6 +15,8 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class FunkoProgram {
@@ -43,33 +45,78 @@ public class FunkoProgram {
     private void callAllServiceMethods() {
         FunkoService serv = FunkoServiceImpl.getInstance(new FunkoRepositoryImpl(DatabaseManager.getInstance()));
         try {
-            System.out.println("\nFind All:");
-            serv.findAll().forEach(System.out::println);
+            printFindAll(serv);
+            printFindByName(serv, "Doctor Who Tardis");
+            printFindById(serv, "3b6c6f58-7c6b-434b-82ab-01b2d6e4434a");
+            List<Funko> funkosSave = printSaveAndGet(serv);
 
-            System.out.println("\nFind by Name:");
-            serv.findByName("Doctor Who Tardis").forEach(System.out::println);
+            // UPDATE //TODO: serv.update();
+            if (!funkosSave.isEmpty()){
+                System.out.println("\nUpdate:");
+                try {
+                    serv.update(funkosSave.get(0).getCod().toString(), Funko.builder()
+                            .name("MadiFunkoModified")
+                            .model(Model.DISNEY)
+                            .price(42.42)
+                            .releaseDate(LocalDate.now())
+                            .build()).ifPresent(System.out::println);
+                } catch (FunkoException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            printFindByName(serv, "MadiFunkoModified"); //TODO: ELIMINAR SI VEO UE SE UPDATEA BIEN
 
-            System.out.println("\nFind by Id:");
-            serv.findById("3b6c6f58-7c6b-434b-82ab-01b2d6e4434a").ifPresent(System.out::println);
-
-            System.out.println("\nSave:");
+            //TODO: serv.delete();
+            System.out.println("\nDelete:");
             try {
-                serv.save(Funko.builder()
-                        .name("MadiFunko")
-                        .model(Model.OTROS)
-                        .price(42)
-                        .releaseDate(LocalDate.now())
-                        .build()).ifPresent(System.out::println);
+                serv.delete(funkosSave.get(0).getCod().toString());
             } catch (FunkoException e) {
                 throw new RuntimeException(e);
             }
-            //TODO: serv.save();
-            //TODO: serv.update();
-            //TODO: serv.remove();
-            //TODO: serv.backup(System.getProperty("user.dir") + File.separator + "data", "backup.json");
+
+            printFindByName(serv, "MadiFunkoModified"); //TODO: ELIMINAR SI VEO UE SE UPDATEA BIEN
+
+
+            doBackupAndPrint(serv);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void doBackupAndPrint(FunkoService serv) {
+        System.out.println("\nBackup:");
+        serv.backup(System.getProperty("user.dir") + File.separator + "data", "backup.json");
+    }
+
+    private List<Funko> printSaveAndGet(FunkoService serv) throws SQLException {
+        //SAVE
+        System.out.println("\nSave:");
+        try {
+            serv.save(Funko.builder()
+                    .name("MadiFunko")
+                    .model(Model.OTROS)
+                    .price(42)
+                    .releaseDate(LocalDate.now())
+                    .build()).ifPresent(System.out::println);
+        } catch (FunkoException e) {
+            throw new RuntimeException(e);
+        }
+        return serv.findByName("MadiFunko");
+    }
+
+    private void printFindById(FunkoService serv, String id) throws SQLException {
+        System.out.println("\nFind by Id:");
+        serv.findById(id).ifPresent(System.out::println);
+    }
+
+    private void printFindByName(FunkoService serv, String name) throws SQLException {
+        System.out.println("\nFind by Name:");
+        serv.findByName(name).forEach(System.out::println);
+    }
+
+    private void printFindAll(FunkoService serv) throws SQLException {
+        System.out.println("\nFind All:");
+        serv.findAll().forEach(System.out::println);
     }
 
     public void loadFunkosFileAndInsertToDatabase(String path) {

@@ -90,8 +90,8 @@ public class FunkoRepositoryImpl implements FunkoRepository {
     }
 
     @Override
-    public Optional<Funko> delete(String id) throws SQLException {
-        return Optional.empty();
+    public Optional<Funko> delete(String id) {
+        return Optional.empty(); //TODO: DO
     }
 
     /**
