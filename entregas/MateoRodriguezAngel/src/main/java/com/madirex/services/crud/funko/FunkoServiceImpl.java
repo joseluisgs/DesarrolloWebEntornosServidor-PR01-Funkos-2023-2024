@@ -1,10 +1,9 @@
-package com.madirex.services.crud.funkos;
+package com.madirex.services.crud.funko;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.madirex.exceptions.FunkoException;
 import com.madirex.models.Funko;
-import com.madirex.repositories.FunkoRepository;
+import com.madirex.repositories.funko.FunkoRepository;
 import com.madirex.utils.LocalDateAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -113,9 +112,9 @@ public class FunkoServiceImpl implements FunkoService {
 
     @Override
     public boolean delete(String id) throws SQLException {
-        Optional<Funko> modified;
+        boolean removed;
         logger.debug("Eliminando funko");
-        modified = funkoRepository.delete(id);
-        return modified.isPresent();
+        removed = funkoRepository.delete(id);
+        return removed;
     }
 }

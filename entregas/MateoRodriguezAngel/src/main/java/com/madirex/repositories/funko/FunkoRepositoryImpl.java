@@ -1,4 +1,4 @@
-package com.madirex.repositories;
+package com.madirex.repositories.funko;
 
 import com.madirex.models.Funko;
 import com.madirex.models.Model;
@@ -89,9 +89,19 @@ public class FunkoRepositoryImpl implements FunkoRepository {
         return Optional.of(entity);
     }
 
+    /**
+     * Borra un elemento del repositorio
+     *
+     * @param id Id del elemento a borrar
+     * @return ¿Borrado?
+     */
     @Override
-    public Optional<Funko> delete(String id) {
-        return Optional.empty(); //TODO: DO
+    public boolean delete(String id) throws SQLException {
+        var sql = "DELETE FROM funko WHERE cod= ?";
+        database.open();
+        var rs = database.delete(sql, id);
+        database.close();
+        return (rs == 1);
     }
 
     /**
@@ -102,8 +112,19 @@ public class FunkoRepositoryImpl implements FunkoRepository {
      * @return Optional del elemento actualizado
      */
     @Override
-    public Optional<Funko> update(String id, Funko entity) {
-        return Optional.empty(); //TODO: DO
+    public Optional<Funko> update(String id, Funko entity) throws SQLException {
+        var sql = "UPDATE funko SET nombre = ?, modelo = ?, precio = ?, fecha_lanzamiento = ?, " +
+                "updated_at = ? WHERE cod = ?";
+        database.open();
+        database.update(sql,
+                        entity.getName(),
+                        entity.getModel().toString(),
+                        entity.getPrice(),
+                        entity.getReleaseDate(),
+                        LocalDateTime.now(),
+                        id);
+        database.close();
+        return Optional.of(entity);
     }
 
 

@@ -47,7 +47,7 @@ public interface CRUDRepository<T, I> {
      * Borra un elemento del repositorio
      *
      * @param id Id del elemento a borrar
-     * @return Optional del elemento borrado
+     * @return ¿Borrado?
      */
-    Optional<T> delete(I id) throws SQLException;
+    boolean delete(I id) throws SQLException;
 }

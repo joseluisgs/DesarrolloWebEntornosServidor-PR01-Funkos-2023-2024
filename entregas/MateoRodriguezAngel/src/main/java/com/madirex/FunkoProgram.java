@@ -4,9 +4,9 @@ import com.madirex.exceptions.FunkoException;
 import com.madirex.exceptions.ReadCSVFailException;
 import com.madirex.models.Funko;
 import com.madirex.models.Model;
-import com.madirex.repositories.FunkoRepositoryImpl;
-import com.madirex.services.crud.funkos.FunkoService;
-import com.madirex.services.crud.funkos.FunkoServiceImpl;
+import com.madirex.repositories.funko.FunkoRepositoryImpl;
+import com.madirex.services.crud.funko.FunkoService;
+import com.madirex.services.crud.funko.FunkoServiceImpl;
 import com.madirex.services.database.DatabaseManager;
 import com.madirex.services.io.CsvManager;
 import org.slf4j.Logger;
@@ -16,7 +16,6 @@ import java.io.File;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class FunkoProgram {
@@ -48,37 +47,34 @@ public class FunkoProgram {
             printFindAll(serv);
             printFindByName(serv, "Doctor Who Tardis");
             printFindById(serv, "3b6c6f58-7c6b-434b-82ab-01b2d6e4434a");
-            List<Funko> funkosSave = printSaveAndGet(serv);
-
-            // UPDATE //TODO: serv.update();
-            if (!funkosSave.isEmpty()){
-                System.out.println("\nUpdate:");
-                try {
-                    serv.update(funkosSave.get(0).getCod().toString(), Funko.builder()
-                            .name("MadiFunkoModified")
-                            .model(Model.DISNEY)
-                            .price(42.42)
-                            .releaseDate(LocalDate.now())
-                            .build()).ifPresent(System.out::println);
-                } catch (FunkoException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-            printFindByName(serv, "MadiFunkoModified"); //TODO: ELIMINAR SI VEO UE SE UPDATEA BIEN
-
-            //TODO: serv.delete();
-            System.out.println("\nDelete:");
-            try {
-                serv.delete(funkosSave.get(0).getCod().toString());
-            } catch (FunkoException e) {
-                throw new RuntimeException(e);
-            }
-
-            printFindByName(serv, "MadiFunkoModified"); //TODO: ELIMINAR SI VEO UE SE UPDATEA BIEN
-
-
+            printSave(serv, "MadiFunko");
+            printUpdate(serv, "MadiFunkoModified");
+            printDelete(serv, "MadiFunkoModified");
             doBackupAndPrint(serv);
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void printDelete(FunkoService serv, String name) throws SQLException {
+        System.out.println("\nDelete:");
+        try {
+            serv.delete(serv.findByName(name).get(0).getCod().toString());
+        } catch (FunkoException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void printUpdate(FunkoService serv, String name) throws SQLException {
+        System.out.println("\nUpdate:");
+        try {
+            serv.update(serv.findByName("MadiFunko").get(0).getCod().toString(), Funko.builder()
+                    .name(name)
+                    .model(Model.DISNEY)
+                    .price(42.42)
+                    .releaseDate(LocalDate.now())
+                    .build()).ifPresent(System.out::println);
+        } catch (FunkoException e) {
             throw new RuntimeException(e);
         }
     }
@@ -88,12 +84,12 @@ public class FunkoProgram {
         serv.backup(System.getProperty("user.dir") + File.separator + "data", "backup.json");
     }
 
-    private List<Funko> printSaveAndGet(FunkoService serv) throws SQLException {
+    private void printSave(FunkoService serv, String name) throws SQLException {
         //SAVE
         System.out.println("\nSave:");
         try {
             serv.save(Funko.builder()
-                    .name("MadiFunko")
+                    .name(name)
                     .model(Model.OTROS)
                     .price(42)
                     .releaseDate(LocalDate.now())
@@ -101,7 +97,6 @@ public class FunkoProgram {
         } catch (FunkoException e) {
             throw new RuntimeException(e);
         }
-        return serv.findByName("MadiFunko");
     }
 
     private void printFindById(FunkoService serv, String id) throws SQLException {

@@ -1,6 +1,7 @@
-package com.madirex.repositories;
+package com.madirex.repositories.funko;
 
 import com.madirex.models.Funko;
+import com.madirex.repositories.CRUDRepository;
 
 import java.sql.SQLException;
 import java.util.List;

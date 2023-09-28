@@ -1,4 +1,4 @@
-package com.madirex.services.crud.funkos;
+package com.madirex.services.crud.funko;
 
 import com.madirex.exceptions.FunkoException;
 import com.madirex.models.Funko;
