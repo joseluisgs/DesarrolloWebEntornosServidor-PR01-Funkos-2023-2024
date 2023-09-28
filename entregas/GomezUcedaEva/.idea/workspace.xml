@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7fdea9f2-e8e7-4881-a6b3-ceac7ba8360e" name="Changes" comment="primer commit" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2VwRTFCVzQDqtC5A7sn4r8m9EMu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Eva/Documents/2daw/dwservidor/EvaGomezUceda/src/main/java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Eva\Documents\2daw\dwservidor\EvaGomezUceda\src\main\java" />
+      <recent name="C:\Users\Eva\Documents\2daw\dwservidor\EvaGomezUceda\src\main\java\models" />
+      <recent name="C:\Users\Eva\Documents\2daw\dwservidor\EvaGomezUceda\src\main" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Eva\Documents\2daw\dwservidor\EvaGomezUceda\src\main\java" />
+      <recent name="C:\Users\Eva\Documents\2daw\dwservidor\EvaGomezUceda\src\main" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="EvaGomezUceda.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7fdea9f2-e8e7-4881-a6b3-ceac7ba8360e" name="Changes" comment="" />
+      <created>1695745162881</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695745162881</updated>
+      <workItem from="1695745163902" duration="305000" />
+      <workItem from="1695745502582" duration="271000" />
+      <workItem from="1695745814998" duration="67000" />
+      <workItem from="1695745922662" duration="201000" />
+      <workItem from="1695746156003" duration="133000" />
+      <workItem from="1695746343603" duration="401000" />
+      <workItem from="1695746833134" duration="156000" />
+      <workItem from="1695747017344" duration="122000" />
+      <workItem from="1695747175603" duration="388000" />
+      <workItem from="1695748711086" duration="285000" />
+      <workItem from="1695749057419" duration="211000" />
+      <workItem from="1695749344821" duration="335000" />
+      <workItem from="1695749739077" duration="204000" />
+      <workItem from="1695750007758" duration="496000" />
+      <workItem from="1695750555204" duration="139000" />
+      <workItem from="1695750805734" duration="103000" />
+      <workItem from="1695751031945" duration="627000" />
+      <workItem from="1695751731532" duration="2553000" />
+      <workItem from="1695832150416" duration="270000" />
+      <workItem from="1695917197334" duration="678000" />
+      <workItem from="1695918055978" duration="265000" />
+    </task>
+    <task id="LOCAL-00001" summary="primer commit">
+      <option name="closed" value="true" />
+      <created>1695918167229</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1695918167229</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="primer commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="primer commit" />
+  </component>
+</project>
