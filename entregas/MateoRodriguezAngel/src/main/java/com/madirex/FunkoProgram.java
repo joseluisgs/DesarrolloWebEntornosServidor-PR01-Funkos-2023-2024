@@ -1,5 +1,6 @@
 package com.madirex;
 
+import com.madirex.controllers.FunkoController;
 import com.madirex.exceptions.FunkoException;
 import com.madirex.exceptions.ReadCSVFailException;
 import com.madirex.models.Funko;
@@ -23,9 +24,11 @@ public class FunkoProgram {
     private static FunkoProgram funkoProgramInstance;
     private final Logger logger = LoggerFactory.getLogger(FunkoProgram.class);
     private FunkoRepositoryImpl funkoRepository = new FunkoRepositoryImpl(DatabaseManager.getInstance());
+    private FunkoController controller;
 
 
     private FunkoProgram() {
+        controller = new FunkoController(funkoRepository);
     }
 
     public static FunkoProgram getInstance() {
@@ -42,15 +45,25 @@ public class FunkoProgram {
     }
 
     private void callAllServiceMethods() {
+        //TODO: hacer todo lo de abajo pero con controlador (controller) y eliminar lo del serv
         FunkoService serv = FunkoServiceImpl.getInstance(new FunkoRepositoryImpl(DatabaseManager.getInstance()));
         try {
+            //Casos correctos
             printFindAll(serv);
             printFindByName(serv, "Doctor Who Tardis");
             printFindById(serv, "3b6c6f58-7c6b-434b-82ab-01b2d6e4434a");
             printSave(serv, "MadiFunko");
             printUpdate(serv, "MadiFunkoModified");
             printDelete(serv, "MadiFunkoModified");
-            doBackupAndPrint(serv);
+            doBackupAndPrint(serv, "data");
+
+            //Casos incorrectos
+            printFindByName(serv, "42");
+            printFindById(serv, "42");
+            printSave(serv, "42"); //TODO: Hacer que pete
+            printUpdate(serv, "42");
+            printDelete(serv, "42");
+            doBackupAndPrint(serv, "noExiste");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -79,9 +92,9 @@ public class FunkoProgram {
         }
     }
 
-    private void doBackupAndPrint(FunkoService serv) {
+    private void doBackupAndPrint(FunkoService serv, String rootFolderName) {
         System.out.println("\nBackup:");
-        serv.backup(System.getProperty("user.dir") + File.separator + "data", "backup.json");
+        serv.backup(System.getProperty("user.dir") + File.separator + rootFolderName, "backup.json");
     }
 
     private void printSave(FunkoService serv, String name) throws SQLException {
