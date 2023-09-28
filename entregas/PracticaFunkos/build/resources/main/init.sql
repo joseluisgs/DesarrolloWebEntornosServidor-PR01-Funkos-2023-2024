@@ -1,0 +1,1 @@
+CREATE TABLE FUNKO AS SELECT * FROM CSVREAD('data/funkos.csv');
