@@ -2,6 +2,8 @@ package com.madirex;
 
 import com.madirex.controllers.FunkoController;
 import com.madirex.exceptions.FunkoException;
+import com.madirex.exceptions.FunkoNotFoundException;
+import com.madirex.exceptions.FunkoNotValidException;
 import com.madirex.exceptions.ReadCSVFailException;
 import com.madirex.models.Funko;
 import com.madirex.models.Model;
@@ -23,12 +25,11 @@ public class FunkoProgram {
 
     private static FunkoProgram funkoProgramInstance;
     private final Logger logger = LoggerFactory.getLogger(FunkoProgram.class);
-    private FunkoRepositoryImpl funkoRepository = new FunkoRepositoryImpl(DatabaseManager.getInstance());
     private FunkoController controller;
 
 
     private FunkoProgram() {
-        controller = new FunkoController(funkoRepository);
+        controller = new FunkoController(new FunkoServiceImpl(new FunkoRepositoryImpl(DatabaseManager.getInstance())));
     }
 
     public static FunkoProgram getInstance() {
@@ -46,43 +47,34 @@ public class FunkoProgram {
 
     private void callAllServiceMethods() {
         //TODO: hacer todo lo de abajo pero con controlador (controller) y eliminar lo del serv
-        FunkoService serv = FunkoServiceImpl.getInstance(new FunkoRepositoryImpl(DatabaseManager.getInstance()));
         try {
             //Casos correctos
-            printFindAll(serv);
-            printFindByName(serv, "Doctor Who Tardis");
-            printFindById(serv, "3b6c6f58-7c6b-434b-82ab-01b2d6e4434a");
-            printSave(serv, "MadiFunko");
-            printUpdate(serv, "MadiFunkoModified");
-            printDelete(serv, "MadiFunkoModified");
-            doBackupAndPrint(serv, "data");
-
-            //Casos incorrectos
-            printFindByName(serv, "42");
-            printFindById(serv, "42");
-            printSave(serv, "42"); //TODO: Hacer que pete
-            printUpdate(serv, "42");
-            printDelete(serv, "42");
-            doBackupAndPrint(serv, "noExiste");
+            printFindAll();
+            printFindByName("Doctor Who Tardis");
+            printFindById("3b6c6f58-7c6b-434b-82ab-01b2d6e4434a");
+            printSave("MadiFunko");
+            printUpdate("MadiFunko", "MadiFunkoModified");
+            printDelete("MadiFunkoModified");
+            doBackupAndPrint("data");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static void printDelete(FunkoService serv, String name) throws SQLException {
+    private void printDelete(String name) throws SQLException {
         System.out.println("\nDelete:");
         try {
-            serv.delete(serv.findByName(name).get(0).getCod().toString());
+            controller.delete(controller.findByName(name).get(0).getCod().toString());
         } catch (FunkoException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static void printUpdate(FunkoService serv, String name) throws SQLException {
+    private void printUpdate(String name, String newName) throws SQLException {
         System.out.println("\nUpdate:");
         try {
-            serv.update(serv.findByName("MadiFunko").get(0).getCod().toString(), Funko.builder()
-                    .name(name)
+            controller.update(controller.findByName(name).get(0).getCod().toString(), Funko.builder()
+                    .name(newName)
                     .model(Model.DISNEY)
                     .price(42.42)
                     .releaseDate(LocalDate.now())
@@ -92,16 +84,16 @@ public class FunkoProgram {
         }
     }
 
-    private void doBackupAndPrint(FunkoService serv, String rootFolderName) {
+    private void doBackupAndPrint(String rootFolderName) {
         System.out.println("\nBackup:");
-        serv.backup(System.getProperty("user.dir") + File.separator + rootFolderName, "backup.json");
+        controller.backup(System.getProperty("user.dir") + File.separator + rootFolderName, "backup.json");
     }
 
-    private void printSave(FunkoService serv, String name) throws SQLException {
+    private void printSave(String name) throws SQLException {
         //SAVE
         System.out.println("\nSave:");
         try {
-            serv.save(Funko.builder()
+            controller.save(Funko.builder()
                     .name(name)
                     .model(Model.OTROS)
                     .price(42)
@@ -112,19 +104,23 @@ public class FunkoProgram {
         }
     }
 
-    private void printFindById(FunkoService serv, String id) throws SQLException {
+    private void printFindById(String id) throws SQLException {
         System.out.println("\nFind by Id:");
-        serv.findById(id).ifPresent(System.out::println);
+        try {
+            System.out.println(controller.findById(id));
+        } catch (FunkoNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private void printFindByName(FunkoService serv, String name) throws SQLException {
+    private void printFindByName(String name) throws SQLException {
         System.out.println("\nFind by Name:");
-        serv.findByName(name).forEach(System.out::println);
+        controller.findByName(name).forEach(System.out::println);
     }
 
-    private void printFindAll(FunkoService serv) throws SQLException {
+    private void printFindAll() throws SQLException {
         System.out.println("\nFind All:");
-        serv.findAll().forEach(System.out::println);
+        controller.findAll().forEach(System.out::println);
     }
 
     public void loadFunkosFileAndInsertToDatabase(String path) {
@@ -135,11 +131,13 @@ public class FunkoProgram {
                     .ifPresent(e -> {
                         e.forEach(funko -> {
                             try {
-                                funkoRepository.save(funko);
+                                controller.save(funko);
                             } catch (SQLException throwables) {
                                 failed.set(true);
                                 String strError = "Error: " + throwables;
                                 logger.error(strError);
+                            } catch (FunkoNotValidException ex) {
+                                throw new RuntimeException(ex);
                             }
                         });
 

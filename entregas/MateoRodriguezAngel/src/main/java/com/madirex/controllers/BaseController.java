@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface BaseController<T> {
     List<T> findAll() throws SQLException;
 
-    T findById(String id) throws SQLException, FunkoNotFoundException;
+    Optional<T> findById(String id) throws SQLException, FunkoNotFoundException;
 
     List<T> findByName(String name) throws SQLException;
 

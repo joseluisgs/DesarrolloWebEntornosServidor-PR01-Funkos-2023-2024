@@ -25,7 +25,7 @@ public class FunkoServiceImpl implements FunkoService {
     private final Logger logger = LoggerFactory.getLogger(FunkoServiceImpl.class);
     private final FunkoRepository funkoRepository;
 
-    private FunkoServiceImpl(FunkoRepository funkoRepository) {
+    public FunkoServiceImpl(FunkoRepository funkoRepository) {
         this.funkoRepository = funkoRepository;
         this.cache = new LinkedHashMap<>(CACHE_SIZE, 0.75f, true) {
             @Override
@@ -55,7 +55,7 @@ public class FunkoServiceImpl implements FunkoService {
     }
 
     @Override
-    public void backup(String path, String fileName) {
+    public void backup(String path, String fileName) throws SQLException, IOException {
         File dataDir = new File(path);
         if (dataDir.exists()) {
             dataDir.mkdir();
@@ -65,14 +65,11 @@ public class FunkoServiceImpl implements FunkoService {
                     .setPrettyPrinting()
                     .create();
             String json = null;
-            try {
-                json = gson.toJson(findAll());
-                Files.writeString(new File(dest).toPath(), json);
-                logger.debug("Backup realizado con éxito");
-            } catch (IOException | SQLException e) {
-                throw new RuntimeException(e);
-            }
+            json = gson.toJson(findAll());
+            Files.writeString(new File(dest).toPath(), json);
+            logger.debug("Backup realizado con éxito");
         }else{
+            //TODO: Exception
             logger.error("El directorio del backup es un directorio no válido. No se creará el backup.");
         }
     }
