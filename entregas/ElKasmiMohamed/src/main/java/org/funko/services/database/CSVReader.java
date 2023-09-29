@@ -22,7 +22,7 @@ public class CSVReader {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             reader.readLine();
-            // Leer cada línea del archivo CSV
+
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length == 5) {
@@ -31,7 +31,7 @@ public class CSVReader {
                     String modelo = parts[2];
                     double precio = Double.parseDouble(parts[3]);
                     Date fechaLanzamiento = dateFormat.parse(parts[4]);
-                    // Puedes obtener las fechas de creación y actualización como nuevas Date si lo deseas.
+
                     Date createdAt = new Date();
                     Date updatedAt = new Date();
 
@@ -47,7 +47,7 @@ public class CSVReader {
     }
 
     public static void main(String[] args) {
-        String filePath = "C:\\Users\\elkas\\Trabajos_EnServidor\\ElKasmiMohamed\\data\\funkos.csv"; // Reemplaza con la ruta real de tu archivo CSV
+        String filePath = "C:\\Users\\elkas\\Trabajos_EnServidor\\ElKasmiMohamed\\data\\funkos.csv";
         try {
             List<Producto> productos = readCSV(filePath);
 
