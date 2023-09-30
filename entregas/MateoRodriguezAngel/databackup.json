@@ -1,0 +1,632 @@
+[
+  {
+    "cod": "3b6c6f58-79b9-434b-82ab-01a2d6e4434a",
+    "name": "Spiderman Delight",
+    "model": "MARVEL",
+    "price": 15.989999771118164,
+    "releaseDate": "2022-05-01"
+  },
+  {
+    "cod": "f8f7ae42-5b01-4d3b-82ab-2d1a2d6e4434",
+    "name": "Stitch Hula",
+    "model": "DISNEY",
+    "price": 25.989999771118164,
+    "releaseDate": "2023-01-01"
+  },
+  {
+    "cod": "6b6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Naruto Shippuden",
+    "model": "ANIME",
+    "price": 19.989999771118164,
+    "releaseDate": "2022-08-01"
+  },
+  {
+    "cod": "a8f7ae42-5b01-4d3b-82ab-2d1a2d6e4434",
+    "name": "Iron Man Classic",
+    "model": "MARVEL",
+    "price": 18.989999771118164,
+    "releaseDate": "2022-06-01"
+  },
+  {
+    "cod": "0b6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Stitch Space Suit",
+    "model": "DISNEY",
+    "price": 22.989999771118164,
+    "releaseDate": "2023-02-01"
+  },
+  {
+    "cod": "5b6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "One Piece Luffy",
+    "model": "ANIME",
+    "price": 19.989999771118164,
+    "releaseDate": "2022-08-01"
+  },
+  {
+    "cod": "0c6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Captain America Shield",
+    "model": "MARVEL",
+    "price": 20.989999771118164,
+    "releaseDate": "2022-07-01"
+  },
+  {
+    "cod": "0d6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Stitch Surfer",
+    "model": "DISNEY",
+    "price": 23.989999771118164,
+    "releaseDate": "2023-03-01"
+  },
+  {
+    "cod": "0e6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Attack on Titan Eren",
+    "model": "ANIME",
+    "price": 21.989999771118164,
+    "releaseDate": "2022-09-01"
+  },
+  {
+    "cod": "0f6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Thor Hammer",
+    "model": "MARVEL",
+    "price": 16.989999771118164,
+    "releaseDate": "2022-10-01"
+  },
+  {
+    "cod": "1b6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Stitch Guitar",
+    "model": "DISNEY",
+    "price": 24.989999771118164,
+    "releaseDate": "2023-04-01"
+  },
+  {
+    "cod": "2b6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "My Hero Academia Deku",
+    "model": "ANIME",
+    "price": 20.989999771118164,
+    "releaseDate": "2022-11-01"
+  },
+  {
+    "cod": "3b6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Hulk Smash",
+    "model": "MARVEL",
+    "price": 17.989999771118164,
+    "releaseDate": "2022-12-01"
+  },
+  {
+    "cod": "4b6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Stitch Alien",
+    "model": "DISNEY",
+    "price": 26.989999771118164,
+    "releaseDate": "2023-05-01"
+  },
+  {
+    "cod": "5b6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Dragon Ball Goku",
+    "model": "ANIME",
+    "price": 22.989999771118164,
+    "releaseDate": "2022-01-01"
+  },
+  {
+    "cod": "6b6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Black Widow Spy",
+    "model": "MARVEL",
+    "price": 18.989999771118164,
+    "releaseDate": "2022-02-01"
+  },
+  {
+    "cod": "7b6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Stitch King",
+    "model": "DISNEY",
+    "price": 27.989999771118164,
+    "releaseDate": "2023-06-01"
+  },
+  {
+    "cod": "8b6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "One Punch Man",
+    "model": "ANIME",
+    "price": 23.989999771118164,
+    "releaseDate": "2022-03-01"
+  },
+  {
+    "cod": "9b6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Thanos Infinity",
+    "model": "MARVEL",
+    "price": 19.989999771118164,
+    "releaseDate": "2022-04-01"
+  },
+  {
+    "cod": "ab6c6f58-7c6b-434b-82ab-01b2d6e4434a",
+    "name": "Stitch Pilot",
+    "model": "DISNEY",
+    "price": 28.989999771118164,
+    "releaseDate": "2023-07-01"
+  },
+  {
+    "cod": "1b6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Batman Dark",
+    "model": "MARVEL",
+    "price": 21.989999771118164,
+    "releaseDate": "2023-08-01"
+  },
+  {
+    "cod": "2b6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Stitch Santa",
+    "model": "DISNEY",
+    "price": 29.989999771118164,
+    "releaseDate": "2023-09-01"
+  },
+  {
+    "cod": "3b6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Bleach Ichigo",
+    "model": "ANIME",
+    "price": 24.989999771118164,
+    "releaseDate": "2022-05-01"
+  },
+  {
+    "cod": "4b6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Wolverine Claws",
+    "model": "MARVEL",
+    "price": 22.989999771118164,
+    "releaseDate": "2023-10-01"
+  },
+  {
+    "cod": "5b6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Stitch Chef",
+    "model": "DISNEY",
+    "price": 30.989999771118164,
+    "releaseDate": "2023-11-01"
+  },
+  {
+    "cod": "6b6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Death Note Light",
+    "model": "ANIME",
+    "price": 25.989999771118164,
+    "releaseDate": "2022-06-01"
+  },
+  {
+    "cod": "7b6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Hawkeye Archer",
+    "model": "MARVEL",
+    "price": 23.989999771118164,
+    "releaseDate": "2023-12-01"
+  },
+  {
+    "cod": "8b6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Stitch Doctor",
+    "model": "DISNEY",
+    "price": 31.989999771118164,
+    "releaseDate": "2022-07-01"
+  },
+  {
+    "cod": "9b6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Sword Art Online Kirito",
+    "model": "ANIME",
+    "price": 26.989999771118164,
+    "releaseDate": "2022-08-01"
+  },
+  {
+    "cod": "ab6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Captain Marvel Flight",
+    "model": "MARVEL",
+    "price": 24.989999771118164,
+    "releaseDate": "2023-01-01"
+  },
+  {
+    "cod": "bb6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Stitch Firefighter",
+    "model": "DISNEY",
+    "price": 32.9900016784668,
+    "releaseDate": "2022-09-01"
+  },
+  {
+    "cod": "cb6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Tokyo Ghoul Kaneki",
+    "model": "ANIME",
+    "price": 27.989999771118164,
+    "releaseDate": "2022-10-01"
+  },
+  {
+    "cod": "db6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Doctor Strange Magic",
+    "model": "MARVEL",
+    "price": 25.989999771118164,
+    "releaseDate": "2023-02-01"
+  },
+  {
+    "cod": "eb6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Stitch Astronaut",
+    "model": "DISNEY",
+    "price": 33.9900016784668,
+    "releaseDate": "2022-11-01"
+  },
+  {
+    "cod": "fb6c6f58-7c6b-434b-82ab-01b2d6e4434b",
+    "name": "Fairy Tail Natsu",
+    "model": "ANIME",
+    "price": 28.989999771118164,
+    "releaseDate": "2022-12-01"
+  },
+  {
+    "cod": "1b6c6f58-7c6b-434b-82ab-01b2d6e4434c",
+    "name": "Black Panther King",
+    "model": "MARVEL",
+    "price": 26.989999771118164,
+    "releaseDate": "2023-03-01"
+  },
+  {
+    "cod": "2b6c6f58-7c6b-434b-82ab-01b2d6e4434c",
+    "name": "Stitch Pirate",
+    "model": "DISNEY",
+    "price": 34.9900016784668,
+    "releaseDate": "2023-04-01"
+  },
+  {
+    "cod": "3b6c6f58-7c6b-434b-82ab-01b2d6e4434c",
+    "name": "One Piece Zoro",
+    "model": "ANIME",
+    "price": 29.989999771118164,
+    "releaseDate": "2023-05-01"
+  },
+  {
+    "cod": "4b6c6f58-7c6b-434b-82ab-01b2d6e4434c",
+    "name": "Deadpool Swords",
+    "model": "MARVEL",
+    "price": 27.989999771118164,
+    "releaseDate": "2023-06-01"
+  },
+  {
+    "cod": "5b6c6f58-7c6b-434b-82ab-01b2d6e4434c",
+    "name": "Stitch Cowboy",
+    "model": "DISNEY",
+    "price": 35.9900016784668,
+    "releaseDate": "2023-07-01"
+  },
+  {
+    "cod": "1c6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Iron Man Flight",
+    "model": "MARVEL",
+    "price": 28.989999771118164,
+    "releaseDate": "2023-09-01"
+  },
+  {
+    "cod": "2c6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Stitch Footballer",
+    "model": "DISNEY",
+    "price": 36.9900016784668,
+    "releaseDate": "2023-10-01"
+  },
+  {
+    "cod": "3c6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Naruto Uzumaki",
+    "model": "ANIME",
+    "price": 30.989999771118164,
+    "releaseDate": "2022-01-01"
+  },
+  {
+    "cod": "4c6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Thor Hammer",
+    "model": "MARVEL",
+    "price": 29.989999771118164,
+    "releaseDate": "2023-11-01"
+  },
+  {
+    "cod": "5c6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Stitch Surfer",
+    "model": "DISNEY",
+    "price": 37.9900016784668,
+    "releaseDate": "2023-12-01"
+  },
+  {
+    "cod": "6c6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "One Punch Man Saitama",
+    "model": "ANIME",
+    "price": 31.989999771118164,
+    "releaseDate": "2022-02-01"
+  },
+  {
+    "cod": "7c6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Scarlet Witch Powers",
+    "model": "MARVEL",
+    "price": 30.989999771118164,
+    "releaseDate": "2022-03-01"
+  },
+  {
+    "cod": "8c6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Stitch Basketball",
+    "model": "DISNEY",
+    "price": 38.9900016784668,
+    "releaseDate": "2022-04-01"
+  },
+  {
+    "cod": "9c6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Attack on Titan Eren",
+    "model": "ANIME",
+    "price": 32.9900016784668,
+    "releaseDate": "2022-05-01"
+  },
+  {
+    "cod": "ac6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Loki Mischief",
+    "model": "MARVEL",
+    "price": 31.989999771118164,
+    "releaseDate": "2022-06-01"
+  },
+  {
+    "cod": "bc6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Stitch Baseball",
+    "model": "DISNEY",
+    "price": 39.9900016784668,
+    "releaseDate": "2022-07-01"
+  },
+  {
+    "cod": "cc6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "My Hero Academia Deku",
+    "model": "ANIME",
+    "price": 33.9900016784668,
+    "releaseDate": "2022-08-01"
+  },
+  {
+    "cod": "dc6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Ant-Man Shrink",
+    "model": "MARVEL",
+    "price": 32.9900016784668,
+    "releaseDate": "2022-09-01"
+  },
+  {
+    "cod": "ec6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Stitch Skater",
+    "model": "DISNEY",
+    "price": 40.9900016784668,
+    "releaseDate": "2022-10-01"
+  },
+  {
+    "cod": "fc6c6f58-7c6b-434b-82ab-01c2d6e4434b",
+    "name": "Dragon Ball Goku",
+    "model": "ANIME",
+    "price": 34.9900016784668,
+    "releaseDate": "2022-11-01"
+  },
+  {
+    "cod": "1c6c6f58-7c6b-434b-82ab-01c2d6e4434c",
+    "name": "Vision Synthezoid",
+    "model": "MARVEL",
+    "price": 33.9900016784668,
+    "releaseDate": "2022-12-01"
+  },
+  {
+    "cod": "2c6c6f58-7c6b-434b-82ab-01c2d6e4434c",
+    "name": "Stitch Painter",
+    "model": "DISNEY",
+    "price": 41.9900016784668,
+    "releaseDate": "2023-01-01"
+  },
+  {
+    "cod": "3c6c6f58-7c6b-434b-82ab-01c2d6e4434c",
+    "name": "Hunter x Hunter Gon",
+    "model": "ANIME",
+    "price": 35.9900016784668,
+    "releaseDate": "2023-02-01"
+  },
+  {
+    "cod": "4c6c6f58-7c6b-434b-82ab-01c2d6e4434c",
+    "name": "Black Widow Spies",
+    "model": "MARVEL",
+    "price": 34.9900016784668,
+    "releaseDate": "2023-03-01"
+  },
+  {
+    "cod": "5c6c6f58-7c6b-434b-82ab-01c2d6e4434c",
+    "name": "Stitch Diver",
+    "model": "DISNEY",
+    "price": 42.9900016784668,
+    "releaseDate": "2023-04-01"
+  },
+  {
+    "cod": "1d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Thor Thunder",
+    "model": "MARVEL",
+    "price": 32.9900016784668,
+    "releaseDate": "2023-11-01"
+  },
+  {
+    "cod": "2d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Stitch Space",
+    "model": "DISNEY",
+    "price": 39.9900016784668,
+    "releaseDate": "2023-12-01"
+  },
+  {
+    "cod": "3d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "One Piece Luffy",
+    "model": "ANIME",
+    "price": 35.9900016784668,
+    "releaseDate": "2023-10-01"
+  },
+  {
+    "cod": "4d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Captain America Shield",
+    "model": "MARVEL",
+    "price": 33.9900016784668,
+    "releaseDate": "2023-11-02"
+  },
+  {
+    "cod": "5d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Stitch Surfer",
+    "model": "DISNEY",
+    "price": 42.9900016784668,
+    "releaseDate": "2023-12-02"
+  },
+  {
+    "cod": "6d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Dragon Ball Goku",
+    "model": "ANIME",
+    "price": 37.9900016784668,
+    "releaseDate": "2023-10-02"
+  },
+  {
+    "cod": "7d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Hulk Smash",
+    "model": "MARVEL",
+    "price": 34.9900016784668,
+    "releaseDate": "2023-11-03"
+  },
+  {
+    "cod": "8d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Stitch Pirate",
+    "model": "DISNEY",
+    "price": 45.9900016784668,
+    "releaseDate": "2023-12-03"
+  },
+  {
+    "cod": "9d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Attack on Titan Eren",
+    "model": "ANIME",
+    "price": 40.9900016784668,
+    "releaseDate": "2023-10-03"
+  },
+  {
+    "cod": "ad6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Black Widow Spy",
+    "model": "MARVEL",
+    "price": 35.9900016784668,
+    "releaseDate": "2023-11-04"
+  },
+  {
+    "cod": "bd6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Stitch Cook",
+    "model": "DISNEY",
+    "price": 48.9900016784668,
+    "releaseDate": "2023-12-04"
+  },
+  {
+    "cod": "cd6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "My Hero Academia Deku",
+    "model": "ANIME",
+    "price": 42.9900016784668,
+    "releaseDate": "2023-10-04"
+  },
+  {
+    "cod": "dd6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Doctor Strange Mystic",
+    "model": "MARVEL",
+    "price": 36.9900016784668,
+    "releaseDate": "2023-11-05"
+  },
+  {
+    "cod": "ed6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Stitch Musician",
+    "model": "DISNEY",
+    "price": 51.9900016784668,
+    "releaseDate": "2023-12-05"
+  },
+  {
+    "cod": "fd6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Tokyo Ghoul Kaneki",
+    "model": "ANIME",
+    "price": 45.9900016784668,
+    "releaseDate": "2023-10-05"
+  },
+  {
+    "cod": "1d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "The Witcher Geralt",
+    "model": "OTROS",
+    "price": 38.9900016784668,
+    "releaseDate": "2023-11-01"
+  },
+  {
+    "cod": "2d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "The Mandalorian",
+    "model": "OTROS",
+    "price": 41.9900016784668,
+    "releaseDate": "2023-12-01"
+  },
+  {
+    "cod": "3d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Harry Potter",
+    "model": "OTROS",
+    "price": 39.9900016784668,
+    "releaseDate": "2023-10-01"
+  },
+  {
+    "cod": "4d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Stranger Things Eleven",
+    "model": "OTROS",
+    "price": 40.9900016784668,
+    "releaseDate": "2023-11-02"
+  },
+  {
+    "cod": "5d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Game of Thrones Jon Snow",
+    "model": "OTROS",
+    "price": 43.9900016784668,
+    "releaseDate": "2023-12-02"
+  },
+  {
+    "cod": "6d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "The Office Michael",
+    "model": "OTROS",
+    "price": 42.9900016784668,
+    "releaseDate": "2023-10-02"
+  },
+  {
+    "cod": "7d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Friends Ross",
+    "model": "OTROS",
+    "price": 44.9900016784668,
+    "releaseDate": "2023-11-03"
+  },
+  {
+    "cod": "8d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "The Simpsons Homer",
+    "model": "OTROS",
+    "price": 45.9900016784668,
+    "releaseDate": "2023-12-03"
+  },
+  {
+    "cod": "9d6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Breaking Bad Walter",
+    "model": "OTROS",
+    "price": 46.9900016784668,
+    "releaseDate": "2023-10-03"
+  },
+  {
+    "cod": "ad6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Star Trek Spock",
+    "model": "OTROS",
+    "price": 47.9900016784668,
+    "releaseDate": "2023-11-04"
+  },
+  {
+    "cod": "bd6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Lord of the Rings Frodo",
+    "model": "OTROS",
+    "price": 48.9900016784668,
+    "releaseDate": "2023-12-04"
+  },
+  {
+    "cod": "cd6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "The Big Bang Theory Sheldon",
+    "model": "OTROS",
+    "price": 49.9900016784668,
+    "releaseDate": "2023-10-04"
+  },
+  {
+    "cod": "dd6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Sherlock Holmes",
+    "model": "OTROS",
+    "price": 50.9900016784668,
+    "releaseDate": "2023-11-05"
+  },
+  {
+    "cod": "ed6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Doctor Who Tardis",
+    "model": "OTROS",
+    "price": 51.9900016784668,
+    "releaseDate": "2023-12-05"
+  },
+  {
+    "cod": "fd6c6f58-7c6b-434b-82ab-01d2d6e4434b",
+    "name": "Peaky Blinders Tommy",
+    "model": "OTROS",
+    "price": 52.9900016784668,
+    "releaseDate": "2023-10-05"
+  }
+]
