@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS productos;
+CREATE TABLE productos (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    cod UUID DEFAULT RANDOM_UUID() NOT NULL,
+    nombre VARCHAR(255),
+    modelo VARCHAR(10) CHECK (modelo IN ('MARVEL', 'DISNEY', 'ANIME', 'OTROS')),
+    precio FLOAT,
+    fecha_lanzamiento DATE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
