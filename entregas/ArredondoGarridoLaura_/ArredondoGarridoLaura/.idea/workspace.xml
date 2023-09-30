@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e3b0c0ae-314b-489c-aead-8c0cce5cc303" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Amet/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/src/csv/Aemet20171029.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/src/csv/Aemet20171030.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/src/csv/Aemet20171031.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/src/main/java/Amet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/src/main/java/AmetControlador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/src/main/java/AmetMadrid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/src/main/java/Busquedadatos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Amet/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/csv/funkos.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CRUD/FunkoRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CRUD/FunkoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CRUD/crudfunko.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Leercsv.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/adaptador/LocalDateAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/DataBaseConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/DatabaseManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/database.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Consultas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Funko.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/writeJSON.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2VwQv6XoqA2IrmWg2qE40duEMEs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Usuario/Desktop/Ejercicios/ArredondoGarridoLaura/src/main/java/org/example/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\Desktop\Ejercicios\ArredondoGarridoLaura\src\main\java" />
+      <recent name="C:\Users\Usuario\Desktop\Ejercicios\ArredondoGarridoLaura\src\main\csv" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.ArredondoGarridoLaura [clean]">
+    <configuration name="CSVaJson" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CSVaJson" />
+      <module name="ArredondoGarridoLaura.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="writeJSON" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="writeJSON" />
+      <module name="ArredondoGarridoLaura.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArredondoGarridoLaura [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ArredondoGarridoLaura [clean]" />
+        <item itemvalue="Application.writeJSON" />
+        <item itemvalue="Application.CSVaJson" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e3b0c0ae-314b-489c-aead-8c0cce5cc303" name="Changes" comment="" />
+      <created>1695744898763</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695744898763</updated>
+      <workItem from="1695744899720" duration="9381000" />
+      <workItem from="1695804274502" duration="7478000" />
+      <workItem from="1695824952563" duration="3655000" />
+      <workItem from="1695834408992" duration="5551000" />
+      <workItem from="1695890339797" duration="2887000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="com.google.gson.JsonIOException" package="com.google.gson" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
