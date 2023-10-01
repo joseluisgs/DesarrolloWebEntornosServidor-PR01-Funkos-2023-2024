@@ -1,16 +1,16 @@
 package dev.repositories;
 
+import dev.exceptions.FunkoNoEncontrado;
 import dev.managers.DatabaseManager;
 import dev.models.Funko;
 import dev.models.Modelo;
 import dev.models.SqlCommand;
 import java.io.IOException;
-import java.security.KeyStore;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-public class FunkosRepoImpl implements FunkosRepo{
+public class FunkosRepoImpl implements FunkosRepo, AutoCloseable{
 
     private final DatabaseManager databaseManager;
 
@@ -18,35 +18,32 @@ public class FunkosRepoImpl implements FunkosRepo{
         this.databaseManager = databaseManager;
     }
 
-    LinkedList<Map.Entry<UUID, Funko>> funkos = new LinkedList<>();
-
     @Override
     public List<Funko> findAll() throws SQLException, IOException {
 
         String sql = "SELECT * FROM funkos";
         databaseManager.open();
 
-        ResultSet resultSet = databaseManager.executeQuery(new SqlCommand(sql));
+        try (ResultSet resultSet = databaseManager.executeQuery(new SqlCommand(sql))) {
 
-        System.out.println(resultSet);
+            List<Funko> funkos = new ArrayList<>();
 
-        List<Funko> funkos = new ArrayList<>();
+            while (resultSet.next()) {
 
-        while (resultSet.next()) {
+                Funko f = Funko.builder().codigo(UUID.fromString(resultSet.getString("cod")))
+                        .nombre(resultSet.getString("nombre"))
+                        .modelo(Modelo.valueOf(resultSet.getString("modelo")))
+                        .precio(resultSet.getDouble("precio"))
+                        .fechaLanzamiento(resultSet.getDate("fecha_lanzamiento").toLocalDate())
+                        .build();
 
-            Funko f = new Funko(
-                    UUID.fromString(resultSet.getString("cod")),
-                    resultSet.getString("nombre"),
-                    Modelo.valueOf(resultSet.getString("modelo")),
-                    resultSet.getDouble("precio"),
-                    resultSet.getDate("fecha_lanzamiento").toLocalDate()
-            );
+                funkos.add(f);
 
-            funkos.add(f);
+            }
+
+            return funkos;
 
         }
-
-        return funkos;
 
     }
 
@@ -58,23 +55,24 @@ public class FunkosRepoImpl implements FunkosRepo{
         SqlCommand sqlCommand = new SqlCommand(sql);
         sqlCommand.addParam(uuid);
 
-        ResultSet resultSet = databaseManager.executeQuery(sqlCommand);
+        try (ResultSet resultSet = databaseManager.executeQuery(sqlCommand)) {
 
-        if (resultSet.next()) {
+            if (resultSet.next()) {
 
-            Funko f = new Funko(
-                    UUID.fromString(resultSet.getString("cod")),
-                    resultSet.getString("nombre"),
-                    Modelo.valueOf(resultSet.getString("modelo")),
-                    resultSet.getDouble("precio"),
-                    resultSet.getDate("fecha_lanzamiento").toLocalDate()
-            );
+                Funko f = Funko.builder().codigo(UUID.fromString(resultSet.getString("cod")))
+                        .nombre(resultSet.getString("nombre"))
+                        .modelo(Modelo.valueOf(resultSet.getString("modelo")))
+                        .precio(resultSet.getDouble("precio"))
+                        .fechaLanzamiento(resultSet.getDate("fecha_lanzamiento").toLocalDate())
+                        .build();
 
-            return Optional.of(f);
+                return Optional.of(f);
+
+            }
 
         }
 
-        return Optional.empty();
+        throw new FunkoNoEncontrado("No se ha encontrado el funko con el id " + uuid.toString());
 
     }
 
@@ -107,19 +105,23 @@ public class FunkosRepoImpl implements FunkosRepo{
 
         databaseManager.executeUpdate(sqlCommand);
 
+        databaseManager.close();
+
         return entity;
 
     }
 
     @Override
-    public void delete(UUID id) throws SQLException, IOException {
+    public boolean delete(UUID id) throws SQLException, IOException {
 
         String sql = "DELETE FROM funkos WHERE cod = ?";
 
         SqlCommand sqlCommand = new SqlCommand(sql);
         sqlCommand.addParam(id);
 
-        databaseManager.executeUpdate(sqlCommand);
+        int res = databaseManager.executeUpdate(sqlCommand);
+
+        return res > 0;
 
     }
 
@@ -131,25 +133,29 @@ public class FunkosRepoImpl implements FunkosRepo{
         SqlCommand sqlCommand = new SqlCommand(sql);
         sqlCommand.addParam(name);
 
-        ResultSet resultSet = databaseManager.executeQuery(sqlCommand);
+        try (ResultSet resultSet = databaseManager.executeQuery(sqlCommand)) {
 
-        if (resultSet.next()) {
+            if (resultSet.next()) {
 
-            Funko f = new Funko(
-                    UUID.fromString(resultSet.getString("cod")),
-                    resultSet.getString("nombre"),
-                    Modelo.valueOf(resultSet.getString("modelo")),
-                    resultSet.getDouble("precio"),
-                    resultSet.getDate("fecha_lanzamiento").toLocalDate()
-            );
+                Funko f = Funko.builder().codigo(UUID.fromString(resultSet.getString("cod")))
+                        .nombre(resultSet.getString("nombre"))
+                        .modelo(Modelo.valueOf(resultSet.getString("modelo")))
+                        .precio(resultSet.getDouble("precio"))
+                        .fechaLanzamiento(resultSet.getDate("fecha_lanzamiento").toLocalDate())
+                        .build();
 
-            return Optional.of(f);
+                return Optional.of(f);
+
+            }
 
         }
 
-        return Optional.empty();
-
+        throw new FunkoNoEncontrado("No se ha encontrado el funko con el nombre " + name);
     }
 
 
+    @Override
+    public void close() throws Exception {
+        databaseManager.close();
+    }
 }

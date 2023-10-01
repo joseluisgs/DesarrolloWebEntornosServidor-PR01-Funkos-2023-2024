@@ -47,7 +47,7 @@ public class DatabaseManager {
     }
 
 
-    public void open() throws SQLException, FileNotFoundException {
+    public void open() throws SQLException {
 
         connection = DriverManager.getConnection(url, username, password);
 

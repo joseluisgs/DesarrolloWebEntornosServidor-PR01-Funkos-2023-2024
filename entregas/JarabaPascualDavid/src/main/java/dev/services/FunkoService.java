@@ -1,10 +1,10 @@
 package dev.services;
 
-import com.google.gson.Gson;
 import dev.managers.DatabaseManager;
 import dev.models.Funko;
 import dev.models.Modelo;
 import dev.repositories.FunkosRepoImpl;
+import dev.services.db.FunkoDBImpl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,12 +21,16 @@ public class FunkoService {
 
     final String CSV_SEPARATOR = ",";
     DatabaseManager dbManager;
-    FunkosRepoImpl repository;
+    FunkoDBImpl funkoDB;
 
 
-    public FunkoService(DatabaseManager dbManager) throws FileNotFoundException {
-        this.dbManager = dbManager;
-        this.repository = new FunkosRepoImpl(dbManager);
+    public FunkoService() {
+        this.dbManager = DatabaseManager.getInstance();
+        funkoDB = FunkoDBImpl.getInstance(new FunkosRepoImpl(dbManager));
+    }
+
+    public List<Funko> getFunkos() throws SQLException, IOException {
+        return funkoDB.findAll();
     }
 
     private String getDataDir() {
@@ -48,14 +52,12 @@ public class FunkoService {
         List<Funko> funkos = Files.readAllLines(filePath).stream().skip(1).map(lin ->{
             String[] fields = lin.split(CSV_SEPARATOR);
             String uuid = fields[0];
-            if (fields[0].length() > 36)
-                uuid = uuid.substring(0,36);
-            Funko fun = new Funko(UUID.fromString(uuid), fields[1], Modelo.valueOf(fields[2]), Double.parseDouble(fields[3]), LocalDate.parse(fields[4]));
+            Funko fun = new Funko(UUID.fromString(uuid.substring(0, 35)), fields[1], Modelo.valueOf(fields[2]), Double.parseDouble(fields[3]), LocalDate.parse(fields[4]));
             return fun;
         }).toList();
 
         for (Funko funko : funkos) {
-            repository.save(funko);
+            funkoDB.save(funko);
         }
 
 
@@ -63,54 +65,51 @@ public class FunkoService {
     }
 
     public Optional<Funko> funkoMasCaro() throws SQLException, IOException {
-        List<Funko> funkos = repository.findAll();
+
+        List<Funko> funkos = getFunkos();
 
         return funkos.stream().max(Comparator.comparingDouble(Funko::getPrecio));
 
     }
 
-
     public double mediaPrecioFunkos() throws SQLException, IOException {
-
-        List<Funko> funkos = repository.findAll();
-
-        return funkos.stream().mapToDouble(Funko::getPrecio).average().getAsDouble();
-
+        List<Funko> funkos = getFunkos();
+        return funkos.stream().mapToDouble(Funko::getPrecio).average().orElse(0.0);
     }
 
     public Map<Modelo, List<Funko>> funkosPorModelo () throws SQLException, IOException {
 
-        List<Funko> funkos = repository.findAll();
+        List<Funko> funkos = getFunkos();
 
         return funkos.stream().collect(Collectors.groupingBy(Funko::getModelo));
     }
 
-
     public Map<Modelo, Integer> numFunkosPorModelo () throws SQLException, IOException {
 
-        List<Funko> funkos = repository.findAll();
+        List<Funko> funkos = getFunkos();
 
         return funkos.stream().collect(Collectors.groupingBy(Funko::getModelo, Collectors.summingInt(e -> 1)));
 
     }
 
-    public void exportJSON() throws SQLException, IOException {
+    public List<Funko> funkosLanzadosEnAnoEspecifico(int ano) throws SQLException, IOException {
 
-        List<Funko> funkos = repository.findAll();
+        List<Funko> funkos = getFunkos();
 
-        String dir = getDataDir();
-        String funkosJsonFile = dir + File.separator + "funkos.json";
+        return funkos.stream().filter(fk -> fk.getFechaLanzamiento().getYear() == ano).toList();
 
-        Path filePath = Paths.get(funkosJsonFile);
+    }
 
-        if (!Files.exists(filePath)) {
-            Files.createFile(filePath);
-        }
+    public List<Funko> funkosContienenPalabra(String palabra) throws SQLException, IOException {
 
-        Gson gson = new Gson();
+        List<Funko> funkos = getFunkos();
 
-        gson.toJson(funkos, Files.newBufferedWriter(filePath));
+        return funkos.stream().filter(fk -> fk.getNombre().toLowerCase().contains(palabra.toLowerCase())).toList();
 
+    }
+
+    public boolean backup(String path) throws SQLException, IOException {
+        return funkoDB.backup(path);
     }
 
 }

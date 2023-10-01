@@ -1,16 +1,18 @@
 package dev.models;
 
+import dev.locale.EspanaLocale;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.Locale;
 import java.util.UUID;
 
 
 
 @Data
 @AllArgsConstructor
+@Builder
 public class Funko {
 
     private UUID codigo;
@@ -25,12 +27,13 @@ public class Funko {
 
 
 
+
     @Override
     public String toString() {
-        Locale locale = Locale.forLanguageTag("es-ES");
 
-        return String.format(locale, "Código: %s\nNombre: %s\nModelo: %s\nPrecio: %.2f€\nFecha de lanzamiento: %s\n",
-                codigo, nombre, modelo, precio, fechaLanzamiento);
+        return String.format("Código: %s\nNombre: %s\nModelo: %s\nPrecio: %s\nFecha de lanzamiento: %s\n",
+                codigo, nombre, modelo, EspanaLocale.toLocalMoney(precio), EspanaLocale.toLocalDate(fechaLanzamiento));
+
     }
 
 
