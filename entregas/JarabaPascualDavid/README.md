@@ -44,6 +44,7 @@ la conexión y las consultas a la BD. Hace uso del fichero de configuración `ap
 para soportar las operaciones básicas de este y agrergar también `findByNombre()`
 
     Para esto se han creado dos interfaces:
+
     ![CRUD](images/ICRUD.png)
     ![FunkosREPO](images/FunkosREPO.png)
     
@@ -56,10 +57,15 @@ para soportar las operaciones básicas de este y agrergar también `findByNombre
 exportar a JSON y se han creado los locales para poder convertir todo al formato ES en la salida.
 
   **Excepciones personalizadas**
+
   ![Excepciones](images/exceptions.png)
+
   **Locale**
+
   ![Locale](images/locale.png)
+
   **Adaptadores**
+
   ![FunkosREPO](images/adapter.png)
 
 - En séptimo lugar, se han implementado las funcionalidades solicitadas en [FunkoService](src/main/java/dev/services/FunkoService.java).
