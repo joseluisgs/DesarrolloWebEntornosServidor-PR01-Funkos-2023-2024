@@ -44,7 +44,7 @@ la conexión y las consultas a la BD. Hace uso del fichero de configuración `ap
 para soportar las operaciones básicas de este y agrergar también `findByNombre()`
 
     Para esto se han creado dos interfaces:
-    ![CRUD](images/CRUD.png)
+    ![CRUD](images/ICRUD.png)
     ![FunkosREPO](images/FunkosREPO.png)
     
     Las cuales se han implementados en [FunkosRepoImpl](src/main/java/dev/repositories/FunkosRepoImpl.java)
