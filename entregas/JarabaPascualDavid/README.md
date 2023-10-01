@@ -24,9 +24,11 @@ Para configurar la base de datos se puede editar el fichero `application.propert
 va ha ser donde se ubique la lógica.
 
 Ejemplo del [FunkoController](src/main/java/dev/controllers/FunkoController.java)
+
 ![controller](images/controller.png)
 
 Ejemplo del [FunkoService](src/main/java/dev/services/FunkoService.java)
+
 ![services](images/services.png)
 
 
