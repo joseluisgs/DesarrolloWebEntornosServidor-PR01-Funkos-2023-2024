@@ -1,35 +1,41 @@
 package dev;
 
 import dev.controllers.FunkoController;
-import dev.managers.DatabaseManager;
 import dev.services.FunkoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws IOException, SQLException {
-        System.out.println("Hello world!");
 
-        FunkoController funk = new FunkoController();
+        FunkoController funk = new FunkoController(new FunkoService());
         funk.importCSV();
 
-//        funk.exportJSON();
+        funk.backup("data/funkos.json");
 
-        System.out.println("Funko mas caro");
-        System.out.println(funk.funkoMasCaro());
+        Logger logger = LoggerFactory.getLogger(Main.class);
 
-        System.out.println("Media de precio de funkos");
-        System.out.println(funk.mediaPrecioFunkos());
+        logger.info("Funko mas caro");
+        logger.info(funk.funkoMasCaro().toString());
 
-        System.out.println("Funkos por modelo");
-        funk.funkosPorModelo().forEach((k, v) -> System.out.println("Modelo "+k + " " + v));
+        logger.info("Media de precio de funkos");
+        logger.info(Double.toString(funk.mediaPrecioFunkos()));
 
-        System.out.println("Numero de funkos por modelo");
-        funk.numFunkosPorModelo().forEach((k, v) -> System.out.println("Modelo "+k + " " + v));
+        logger.info("Funkos por modelo");
+        funk.funkosPorModelo().forEach((k, v) -> logger.info("Modelo "+k + " " + v));
 
+        logger.info("Numero de funkos por modelo");
+        funk.numFunkosPorModelo().forEach((k, v) -> logger.info("Modelo "+k + " " + v));
 
+        logger.info("Funkos lanzados en 2023");
+        funk.funkosLanzadosEnAnoEspecifico(2023).forEach(System.out::println);
+
+        logger.info("Funkos de Stitch");
+        funk.funkosContienenPalabra("stitch").forEach(System.out::println);
+        logger.info("Numero de funkos de Stitch "+funk.numFunkosDe("stitch"));
 
     }
 }

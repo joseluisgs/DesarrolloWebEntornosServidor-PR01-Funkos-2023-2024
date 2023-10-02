@@ -16,5 +16,5 @@ public interface CRUDRepo<T, ID> {
 
     T update(ID id, T entity) throws SQLException, IOException;
 
-    void delete(ID id) throws SQLException, IOException;
+    boolean delete(ID id) throws SQLException, IOException;
 }
